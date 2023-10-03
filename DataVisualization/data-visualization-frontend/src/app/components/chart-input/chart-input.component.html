@@ -1,0 +1,31 @@
+<div class="selcontainer mt-1">
+      <!-- Bank Selection -->
+      <div class="form-group">
+        <label for="bank">Select Bank:</label>
+        <select class="form-control" id="bank" name="bank" [(ngModel)]="bank" required >
+          <option value="">-- Select Bank --</option>
+          <option value="icici">ICICI</option>
+          <option value="hdfc">HDFC</option>
+          <option value="sbi">SBI</option>
+        </select>
+      </div>
+      
+      <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="startDate">Start Date:</label>
+              <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="startDate" required>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="endDate">End Date:</label>
+              <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="endDate" required>
+            </div>
+          </div>
+      </div>
+      <div class="text-center pt-3 pd-3">
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary" (click)="getData()">Submit</button>
+      </div>
+</div>
