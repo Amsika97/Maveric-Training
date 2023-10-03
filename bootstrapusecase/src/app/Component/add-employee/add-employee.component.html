@@ -1,0 +1,32 @@
+<div class="content-wrapper">
+    <form (ngSubmit)="AddEmployee()">
+        <div class="form-group">
+          <div class="container">
+            <h1 class="text-center container mt-5 p-5 bg-secondary text-white rounded">Add Employee Details</h1>
+            <br>
+
+            <label for="empname">
+            <b> Employee Name</b>
+            </label>
+        <input type="text" class="form-control" name="empname" id="empname" placeholder="Enter Employee Name" required [(ngModel)]="employees.empname">
+        <br>
+
+        <label for="post">
+            <b>Designation</b>
+        </label>
+        <input type="text" class="form-control" name="post" id="post" placeholder="Enter Designation" required [(ngModel)]="employees.post">
+        <br>
+
+        <label for="salary">
+            <b>Salary</b>
+        </label>
+        <input type="text" class="form-control" placeholder="Enter Salary" name="salary" id="salary" required [(ngModel)]="employees.salary">
+        
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary" id="sbtbtn">Add</button>
+        </div>
+    </div>
+        </div>
+    </form>
+</div>

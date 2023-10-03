@@ -1,0 +1,10 @@
+.navbar-nav .nav-link {
+    font-family: 'Algerian';
+    font-size: 20px;
+    font-weight: Italic;
+    color:white;
+  }
+  .navbar-nav .active{
+    color: black;
+    
+  }

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+     
+      <div class="col-md-12">
+        <h2 class="text-center container mt-5 p-5 bg-secondary text-white rounded">Employee List</h2>
+        <br>
+        <table class="table table-striped table-hover table-bordered text-center" style="border: 3px">
+          <thead class="thead-dark">
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Post</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees">
+              <td>{{ employee.empid }}</td>
+              <td>{{ employee.empname }}</td>
+              <td>{{ employee.post }}</td>
+              <td>{{ employee.salary }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
