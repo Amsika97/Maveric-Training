@@ -1,0 +1,37 @@
+1] Write a form with sign up details and submit these details to server and display the details in json format 
+
+2] In the same code accept birthdate and from the server return age with years + month and days 
+
+3] Write a client appliction to do some operations like 
+   
+  1] Create table using text from client
+  2] Insert data
+  3] Update data
+  4] display data using table 
+  5] Delete data
+ 
+
+4] Create two options like sign up and login 
+   sign up will store the data into database 
+   
+   using login accept the values from user and check with database 
+   return status for success and failure 
+
+
+json -server data.json 2020
+postman
+swagger and api
+
+
+angular
+Data-binding − It is the automatic synchronization of data between model and view components.
+Scope − These are objects that refer to the model. They act as a glue between controller and view.
+Controller − These are JavaScript functions bound to a particular scope.
+Services − AngularJS comes with several built-in services such as $http to make a XMLHttpRequests. These are singleton objects which are instantiated only once in app.
+Filters − These select a subset of items from an array and returns a new array.
+Directives − Directives are markers on DOM elements such as elements, attributes, css, and more. These can be used to create custom HTML tags that serve as new, custom widgets. AngularJS has built-in directives such as ngBind, ngModel, etc.
+Templates − These are the rendered view with information from the controller and model. These can be a single file (such as index.html) or multiple views in one page using partials.
+Routing − It is concept of switching views.
+Model View Whatever − MVW is a design pattern for dividing an application into different parts called Model, View, and Controller, each with distinct responsibilities. AngularJS does not implement MVC in the traditional sense, but rather something closer to MVVM (Model-View-ViewModel). The Angular JS team refers it humorously as Model View Whatever.
+Deep Linking − Deep linking allows to encode the state of application in the URL so that it can be bookmarked. The application can then be restored from the URL to the same state.
+Dependency Injection − AngularJS has a built-in dependency injection subsystem that helps the developer to create, understand, and test the applications easily.

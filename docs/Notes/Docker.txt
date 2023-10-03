@@ -1,0 +1,719 @@
+Docker, a subset of the Moby project, is a software framework for building, running, and managing containers on servers and the cloud. The term "docker" may refer to either the tools (the commands and a daemon) or to the Dockerfile file format.
+
+It used to be that when you wanted to run a web application, you bought a server, installed Linux, set up a LAMP stack, and ran the app. If your app got popular, you practiced good load balancing by setting up a second server to ensure the application wouldn't crash from too much traffic.
+
+Times have changed, though, and instead of focusing on single servers, the Internet is built upon arrays of inter-dependent and redundant servers in a system commonly called "the cloud". Thanks to innovations like Linux kernel namespaces and cgroups, the concept of a server could be removed from the constraints of hardware and instead became, essentially, a piece of software. These software-based servers are called containers, and they're a hybrid mix of the Linux OS they're running on plus a hyper-localized runtime environment (the contents of the container).
+
+
+
+Understanding containers
+Container technology can be thought of as three different categories:
+
+Builder: a tool or series of tools used to build a container, such as distrobuilder for LXC, or a Dockerfile for Docker.
+
+Engine: an application used to run a container. For Docker, this refers to the docker command and the dockerd daemon. For others, this can refer to the containerd daemon and relevant commands (such as podman.)
+
+Orchestration: technology used to manage many containers, including Kubernetes and OKD.
+
+One of the great things about open source is that you have choice in what technology you use to accomplish a task. The Docker engine can be useful for lone developers who need a lightweight, clean environment for testing, but without a need for complex orchestration. If Docker is available on your system and everyone around you is familiar with the Docker toolchain, then Docker Community Edition (docker-ce) is a great way to get started with containers.
+
+Dockerhub and Quay.io are repositories offering images for your container engine of choice. If Docker Community Edition is unavailable or is unsupported, then Podman is a wise option. The effort to ensure open standards prevail is ongoing, so the important long-term strategy for your container solution should be to stick with projects that respect and foster open source and open standards. Proprietary extras may seem appealing at first, but as is usually the case, you lose the flexibility of choice once you commit your tools to a product that fails to allow for migration. Containers can be liberating, as long as they're liberated.
+
+Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
+The initial release of Docker was in March 2013 and since then, it has become the buzzword for modern world development, especially in the face of Agile-based projects.
+
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx (Docker Inc., v0.11.0)
+  compose*    Docker Compose (Docker Inc., v2.19.1)
+  container   Manage containers
+  context     Manage contexts
+  dev*        Docker Dev Environments (Docker Inc., v0.1.0)
+  extension*  Manages Docker extensions (Docker Inc., v0.2.20)
+  image       Manage images
+  init*       Creates Docker-related starter files for your project (Docker Inc., v0.1.0-beta.6)
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image (Anchore Inc., 0.6.0)
+  scan*       Docker Scan (Docker Inc., v0.26.0)
+  scout*      Command line tool for Docker Scout (Docker Inc., 0.16.1)
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\Kranti\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\Kranti\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\Kranti\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\Kranti\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+    
+	
+	-
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	
+	1] docker -v
+2] docker run hello-world
+3] docker images
+4] https://hub.docker.com/
+5] docker pull hello-world
+6] docker run hello-world
+7] docker pull openjdk
+8] docker images
+9] docker pull openjdk:18
+10] docker pull python
+11] docker search mysql
+12] docker run python
+13] docker ps
+14] docker ps -a
+15] docker run --name pythonContainer -d python [ID]
+16] docker run --name pythongContainer1 -it -d python
+17] docker exec -it [container id] python3
+
+
+use python
+
+
+exit
+
+18] docker run --name javaContainer -it -d openjdk
+19] docker ps
+20] docker exec -it javaContainer jshell
+21] docker pull mysql
+22] docker run --name mysqlDrb -e MYSQL_ROOT_PASSWORD=root -d mysql
+23] docker ps
+24] docker inspect mysqlDb
+25] dcker exec -it mysqlDb bash
+26] specify password of mysql
+27] mysql -p
+28] docker stop [USE CONTAINER ID] [another id]
+29] docker remove [USE CONTAINER ID] [another id]
+30] docker rmi openjdk:18
+31] create a folder 
+     open in vscode
+    create a Dockerfile  
+
+FROM ubuntu
+
+MAINTAINER shital
+
+RUN apt-update
+
+CMD [ "echo","this is my ubuntu image" ]
+
+32] install docker extension
+33] docker build -t my_ubuntu_image .
+
+   ERRRO 
+
+FROM ubuntu
+
+MAINTAINER shital
+
+RUN apt update
+
+CMD [ "echo","this is my ubuntu image" ]
+
+34] docker pull ubuntu
+35] docker run --name ubuntu my_ubuntu_image
+
+
+36] Create a java_project folder 
+    open in vscode
+    create Dockerfile
+
+FROM openjdk:11
+WORKDIR /usr/src/myapp
+COPY . /usr/src/myapp/
+RUN JAVAC Test.java
+CMD ["java","Test"]
+
+
+Create a java class Test
+
+class Test{
+    public static void printSystemProperties(){
+        sysout.println("Printint system props");
+
+
+    }
+
+    public static void main(String []args){
+        sysout.println("JAVA program started")
+    }
+}
+
+
+
+37] docker build -t myjavaimage .
+38] docker images
+39] docker run --name javaProject myjavaimage
+
+40] create python-project 
+   open in vscode
+
+   create a file main.py
+    
+   print("This is python project")
+   def myFun(m1,m2):
+	print("sum is ",(m1+m2))
+   print("by by python")
+   myFun(10,20)
+
+
+41] create Dockerfile
+   
+   FROM python
+   WORKDIR /usr/src/myapp
+   COPY . /usr/src/myapp/
+   CMD ["python3","main.py"]
+   
+
+42] docker build -t pythonproject .
+43] docker run --name pythonProject pythonproject 
+
+
+
+
+SPRING BOOT
+
+44] spring initializer
+  create a spring boot application
+   
+  spring web dependancies
+   
+
+   gradle project
+
+  save project 
+  open the folder in vscode
+
+  build project   
+  
+
+  
+  @RestController
+  public class TestController{
+
+   @RequestMapping("/")
+   public Map<String,Object> getValues(){
+    Map<String,Object> data=new HashMap<>();
+   data.put("message","JAVA API IS WOrking file");
+   data.put("lanaguage",Arrats.asList("JAVA","PYTON");
+   
+return data;
+
+}
+}
+ 
+
+ change the port 9595
+
+
+
+docker 
+
+
+
+double click on DockerTest 
+
+ build  
+    
+this will create build folder 
+lib
+
+you will  find jar file
+
+
+
+45] 
+
+open the location in cmd 
+use the command 
+
+java jar .\Docker..........
+
+
+
+
+we 
+
+
+
+
+46] 	mkdir boot-project
+
+    open is vscode
+
+   paste the jar file created 
+
+47] create Dockerfile
+
+
+   FROM openjdk
+   WORKDIR /usr/src/myapp 
+   COPY . /usr/src/myapp/
+   CMD ["java","-jar","DockerTest......."]
+   EXPOSE 9595
+
+
+48] docker build -t bootimage .
+49] docker images
+50] docker run --name bootProject -it -d bootimage
+51] docker ps
+52] docker logs bootProject
+53] docker run --name bootProject2 -it -p 9595:9595 -d bootimage
+            ------------------------------------------------------------------------------------------------------------------------------------
+			
+			https://quizizz.com/join?gc=375060
+    
+
+package com.training.org;
+
+public class Greeting {
+	private int id;
+	private String name;
+	public Greeting() {
+		System.out.println("Default Greeting is called");
+	}
+	
+	public Greeting(int id, String name) {
+		System.out.println("Parametrised Greeting is called");
+		this.id = id;
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Greeting [id=" + id + ", name=" + name + "]";
+	}
+	
+	
+	
+
+}
+
+
+
+
+
+package com.training.org;
+
+import java.util.ArrayList;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class HelloComponent {
+	
+	@RequestMapping("/")
+	public Greeting getMessage() {
+		return new Greeting(1,"EShan");
+	}
+
+	@RequestMapping("/records")
+	public ArrayList<Greeting> getGreetings(){
+		ArrayList<Greeting> gList=new ArrayList<Greeting>();
+		gList.add(new Greeting(1,"Good Morning"));
+		gList.add(new Greeting(2,"Good Afternoon"));
+		gList.add(new Greeting(3,"Good Evening"));
+		gList.add(new Greeting(4,"Good Night"));
+		
+		return gList;
+		
+		
+	}
+}
+
+
+
+
+
+package com.training.org;
+
+
+import java.util.Arrays;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class HelloSpringBootApplication {
+	public static void main(String[] args) {
+		ApplicationContext ctx=SpringApplication.run(HelloSpringBootApplication.class, args);
+		System.out.println("CTX"+ctx);
+		
+		String[] beanNames = ctx.getBeanDefinitionNames(); 
+        Arrays.sort(beanNames);
+         for (String beanName : beanNames) {
+            System.out.println(beanName);
+        }
+
+	}
+}
+
+
+
+
+
+
+The spring boot annotations are mostly placed in org.springframework.boot.autoconfigure and org.springframework.boot.autoconfigure.condition packages. Let’s learn about some frequently used spring boot annotations as well as which work behind the scene.
+
+@SpringBootApplication
+Spring boot is mostly about auto-configuration. This auto-configuration is done by component scanning i.e. finding all classes in classspath for @Component annotation. It also involve scanning of @Configuration annotation and initialize some extra beans.
+
+@SpringBootApplication annotation enable all able things in one step. It enables the three features:
+
+@EnableAutoConfiguration : enable auto-configuration mechanism
+@ComponentScan : enable @Component scan
+@SpringBootConfiguration : register extra beans in the context
+
+    
+    
+    
+    
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.trining.app</groupId>
+  <artifactId>HelloWorldSpringBoot</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  	<java.version>1.14</java.version>
+  </properties>
+  
+  <parent>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-starter-parent</artifactId>
+	  <version>1.5.4.RELEASE</version>
+  </parent>
+  	
+  <dependencies>
+	  <dependency>
+	  	<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		
+	  </dependency>
+  </dependencies>
+  
+</project>
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1] docker pull openjdk
+2] create a folder and add
+   Dockerfile
+   Test.java
+
+3] docker build -t myjavaimage .
+4] docker images
+5] docker run --name javaProject myjavaimage
+
+
+
+
+
+
+
+
+
+
+31] create a folder 
+     open in vscode
+    create a Dockerfile  
+
+32] install docker extension
+33] docker build -t my_ubuntu_image .
+
+
+FROM ubuntu
+
+MAINTAINER shital
+
+RUN apt update
+
+CMD [ "echo","this is my ubuntu image" ]
+
+34] docker pull ubuntu
+35] docker run --name ubuntu my_ubuntu_image
+
+
+
+FROM ubuntu
+
+MAINTAINER shital
+
+RUN apt update
+
+CMD [ "echo","this is my ubuntu image" ]
+
+
+
+
+
+
+
+1] docker pull openjdk
+2] docker run --name javaContainer -it -d openjdk
+3] docker exec -it javaContainer jshell
+
+
+
+
+
+
+
+
+
+
+1] docker pull mysql
+2] docker run --name mysqlDb -e MYSQL_ROOT_PASSWORD=root -d mysql
+3] docker exec -it mysqlDb bash
+4] mysql -p
+use the password to start 
+
+
+
+
+
+
+
+PS C:\Users\Kranti\Desktop> docker --help
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  buildx*     Docker Buildx (Docker Inc., v0.11.0)
+  compose*    Docker Compose (Docker Inc., v2.19.1)
+  container   Manage containers
+  context     Manage contexts
+  dev*        Docker Dev Environments (Docker Inc., v0.1.0)
+  extension*  Manages Docker extensions (Docker Inc., v0.2.20)
+  image       Manage images
+  init*       Creates Docker-related starter files for your project (Docker Inc., v0.1.0-beta.6)
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  sbom*       View the packaged-based Software Bill Of Materials (SBOM) for an image (Anchore Inc., 0.6.0)
+  scan*       Docker Scan (Docker Inc., v0.26.0)
+  scout*      Command line tool for Docker Scout (Docker Inc., 0.16.1)
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default
+                           "C:\\Users\\Kranti\\.docker")
+  -c, --context string     Name of the context to use to connect to the
+                           daemon (overrides DOCKER_HOST env var and
+                           default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info",
+                           "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default
+                           "C:\\Users\\Kranti\\.docker\\ca.pem")
+      --tlscert string     Path to TLS certificate file (default
+                           "C:\\Users\\Kranti\\.docker\\cert.pem")
+      --tlskey string      Path to TLS key file (default
+                           "C:\\Users\\Kranti\\.docker\\key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+
+
+Docker is a container management service. The keywords of Docker are develop, ship and run anywhere. The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
+The initial release of Docker was in March 2013 and since then, it has become the buzzword for modern world development, especially in the face of Agile-based projects.
+
+
+    
+    
+    
+    
+One of the great things about open source is that you have choice in what technology you use to accomplish a task. The Docker engine can be useful for lone developers who need a lightweight, clean environment for testing, but without a need for complex orchestration. If Docker is available on your system and everyone around you is familiar with the Docker toolchain, then Docker Community Edition (docker-ce) is a great way to get started with containers.
+
+Dockerhub and Quay.io are repositories offering images for your container engine of choice. If Docker Community Edition is unavailable or is unsupported, then Podman is a wise option. The effort to ensure open standards prevail is ongoing, so the important long-term strategy for your container solution should be to stick with projects that respect and foster open source and open standards. Proprietary extras may seem appealing at first, but as is usually the case, you lose the flexibility of choice once you commit your tools to a product that fails to allow for migration. Containers can be liberating, as long as they're liberated.
+
+
+
+
+
+
+Understanding containers
+Container technology can be thought of as three different categories:
+
+Builder: a tool or series of tools used to build a container, such as distrobuilder for LXC, or a Dockerfile for Docker.
+
+Engine: an application used to run a container. For Docker, this refers to the docker command and the dockerd daemon. For others, this can refer to the containerd daemon and relevant commands (such as podman.)
+
+Orchestration: technology used to manage many containers, including Kubernetes and OKD.
+
+    
+    
+
+Docker, a subset of the Moby project, is a software framework for building, running, and managing containers on servers and the cloud. The term "docker" may refer to either the tools (the commands and a daemon) or to the Dockerfile file format.
+
+It used to be that when you wanted to run a web application, you bought a server, installed Linux, set up a LAMP stack, and ran the app. If your app got popular, you practiced good load balancing by setting up a second server to ensure the application wouldn't crash from too much traffic.
+
+Times have changed, though, and instead of focusing on single servers, the Internet is built upon arrays of inter-dependent and redundant servers in a system commonly called "the cloud". Thanks to innovations like Linux kernel namespaces and cgroups, the concept of a server could be removed from the constraints of hardware and instead became, essentially, a piece of software. These software-based servers are called containers, and they're a hybrid mix of the Linux OS they're running on plus a hyper-localized runtime environment (the contents of the container).
+

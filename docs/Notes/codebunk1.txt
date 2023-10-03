@@ -1,0 +1,4466 @@
+Data-binding − It is the automatic synchronization of data between model and view components.
+Scope − These are objects that refer to the model. They act as a glue between controller and view.
+Controller − These are JavaScript functions bound to a particular scope.
+Services − AngularJS comes with several built-in services such as $http to make a XMLHttpRequests. These are singleton objects which are instantiated only once in app.
+Filters − These select a subset of items from an array and returns a new array.
+Directives − Directives are markers on DOM elements such as elements, attributes, css, and more. These can be used to create custom HTML tags that serve as new, custom widgets. AngularJS has built-in directives such as ngBind, ngModel, etc.
+Templates − These are the rendered view with information from the controller and model. These can be a single file (such as index.html) or multiple views in one page using partials.
+Routing − It is concept of switching views.
+Model View Whatever − MVW is a design pattern for dividing an application into different parts called Model, View, and Controller, each with distinct responsibilities. AngularJS does not implement MVC in the traditional sense, but rather something closer to MVVM (Model-View-ViewModel). The Angular JS team refers it humorously as Model View Whatever.
+Deep Linking − Deep linking allows to encode the state of application in the URL so that it can be bookmarked. The application can then be restored from the URL to the same state.
+Dependency Injection − AngularJS has a built-in dependency injection subsystem that helps the developer to create, understand, and test the applications easily.
+
+
+
+
+
+
+********************************12/07/2023
+
+
+
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Tasks API",
+        "contact": {
+            "email": "abc@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:3080",
+    "basePath": "/api",
+    "paths": {
+        "/todos": {
+            "get": {
+                "summary": "Get all the tasks",
+                "description": "Get all the tasks",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/todo": {
+            "post": {
+                "summary": "Save the task",
+                "description": "Save the task",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "task object",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "task": {
+                                "type": "object",
+                                "$ref": "#/definitions/Task"
+                            }
+                        }
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/todos/{id}": {
+            "put": {
+                "summary": "Update the tasks",
+                "description": "Update the tasks",
+                "produces": ["application/json"],
+                "parameters": [{
+                        "name": "id",
+                        "in": "path",
+                        "description": "task id that needs to be deleted",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "task object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "task": {
+                                    "type": "object",
+                                    "$ref": "#/definitions/Task"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/todo/{id}": {
+            "delete": {
+                "summary": "Delete the task",
+                "description": "Delete the task",
+                "produces": ["application/json"],
+                "parameters": [{
+                    "name": "id",
+                    "in": "path",
+                    "description": "task id that needs to be deleted",
+                    "required": true,
+                    "type": "string"
+                }],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "todosResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "task": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "Task": {
+            "type": "object",
+            "properties": {
+                "task": {
+                    "type": "string"
+                },
+                "assignee": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const express = require('express');
+const randomId = require('random-id');
+const app = express(), bodyParser = require("body-parser"), fs = require('fs'), port = 3080;
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+ const customCss = fs.readFileSync((process.cwd()+"/swagger.css"), 'utf8');
+
+// place holder for the data
+let tasks = [
+  {
+    id: 1,
+    task: 'task1',
+    assignee: 'assignee1000',
+    status: 'completed'
+  },
+  {
+    id: 2,
+    task: 'task2',
+    assignee: 'assignee1001',
+    status: 'completed'
+  },
+  {
+    id: 3,
+    task: 'task3',
+    assignee: 'assignee1002',
+    status: 'completed'
+  },
+  {
+    id: 4,
+    task: 'task4',
+    assignee: 'assignee1000',
+    status: 'completed'
+  },
+  
+];
+
+app.use(bodyParser.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {customCss}));
+
+app.get('/api/todos', (req, res) => {
+  console.log('api/todos called!!!!!')
+  res.json(tasks);
+});
+
+app.post('/api/todo', (req, res) => {
+   const task = req.body.task;
+   task.id = randomId(10);
+   tasks.push(task);
+   res.json(tasks);
+})
+
+app.delete('/api/todo/:id', (req, res) => {
+  console.log("Id to delete:::::", req.params.id)
+  tasks = tasks.filter(task => task.id != req.params.id);
+  res.json(tasks);
+})
+
+app.put('/api/todos/:id', (req, res) => {
+  console.log("Id to update:::::", req.params.id)
+  const taskToUpdate = req.body.task;
+  tasks = tasks.map(task => {
+    if (task.id == req.params.id) {
+      task = taskToUpdate;
+      task.id = parseInt(req.params.id);
+    }
+    return task;
+});
+  res.json(tasks);
+});
+
+app.get('/', (req,res) => {
+  res.send(`<h1>API Running on port ${port}</h1>`);
+});
+
+app.listen(port, () => {
+    console.log(`Server listening on the port::::::${port}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+body {
+    background-color: #e0e0e0
+}
+
+.swagger-ui .topbar {
+    background-color: rgb(65, 26, 238);
+}
+
+.swagger-ui .info .base-url {
+    font-size: 25px;
+}
+
+.swagger-ui .markdown p {
+    font-size: 40px;
+}
+
+.swagger-ui .btn.execute {
+    background-color: green;
+}
+
+.swagger-ui button {
+    background: orange;
+}
+
+.swagger-ui .scheme-container {
+    background-color: rgb(238, 176, 61);
+}
+
+
+
+
+
+
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api for todoapp",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./server.js localhost 3080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "random-id": "^1.0.4",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
+
+
+
+
+
+
+
+
+var express = require('express');
+var app = express();
+var axios =require('axios');
+
+app.get('/', function(req, res){
+    axios.get('http://localhost:2020/users')
+    .then(response =>console.log(response.data))
+    res.end("<h1>watch server console for data</h1>")
+})
+
+var server = app.listen(7070,function(){
+    console.log("Server is started at 7070 port")
+})
+
+
+
+
+
+
+
+
+json-server data.json -p 2020
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************************** 11/07/2023
+
+
+
+
+
+
+
+1] Write a form with sign up details and submit these details to server and display the details in json format 
+
+2] In the same code accept birthdate and from the server return age with years + month and days 
+
+3] Write a client appliction to do some operations like 
+   
+  1] Create table using text from client
+  2] Insert data
+  3] Update data
+  4] display data using table 
+  5] Delete data
+ 
+
+4] Create two options like sign up and login 
+   sign up will store the data into database 
+   
+   using login accept the values from user and check with database 
+   return status for success and failure 
+
+
+
+
+
+
+
+
+
+var express=require('express');
+var app = express();
+
+var mysql = require('mysql');
+
+const connection=mysql.createConnection({
+    host: 'localhost',
+    user: 'shital',
+    password: 'shital@123',
+    database: 'sales',
+    insecureAuth: true
+})
+connection.connect(function(err){
+    if (err) {
+        console.log(err);
+    }
+    else{
+        console.log("Connection established")
+        connection.query("select * from students",function(err,result){
+            if(err)throw err
+            console.log(result)
+        })
+    }
+})
+
+
+
+
+
+var express=require('express');
+var app = express();
+
+var mysql = require('mysql');
+
+const connection=mysql.createConnection({
+    host: 'localhost',
+    user: 'shital',
+    password: 'shital@123',
+    database: 'sales',
+    insecureAuth: true
+})
+connection.connect(function(err){
+    if (err) {
+        console.log(err);
+    }
+    else{
+        console.log("Connection established")
+    }
+})
+
+
+
+
+
+
+var express=require('express');
+var app = express();
+
+var mysql = require('mysql');
+
+const connection=mysql.createConnection({
+    host: 'localhost',
+    user: 'shital',
+    password: 'shital@123',
+    database: 'sales',
+    insecureAuth: true
+})
+
+
+
+
+
+
+
+https://quizizz.com/join?gc=184827
+    
+    
+    
+
+
+// var http=require('http');
+// var url=require('url');
+
+var express = require('express');
+var app = express();
+
+var bodyParser = require('body-parser');
+
+var urlEncoded=bodyParser.urlencoded({extended:false})
+
+app.get('/', function(req, res){
+
+    res.end("<h1>This is / url </h1>")
+})
+
+app.post("/login",urlEncoded,function(req,res){
+    response={
+        username:req.body.username,
+        password:req.body.password
+    }
+    console.log(response)
+    res.end(JSON.stringify(response))
+})
+
+app.get("/login",function(req, res){
+    response={
+        username:req.query.username,
+        password:req.query.password
+    }
+    console.log(response)
+    res.end(JSON.stringify(response));
+})
+
+var server = app.listen(7070,function(){
+    
+    console.log("Server is started at 7070 port")
+})
+
+
+
+
+// http.createServer(function(req, res){
+//     // console.log(req.url);
+//     var q=url.parse(req.url,true).query;
+
+//     console.log(q.year)
+//     console.log(q.month)
+//     res.end("<h1>Hello This is message from server HEllo</h1>"+q.year+" "+q.month)
+// }).listen(6060)
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="http://localhost:7070/login" method="POST"> 
+		Enter username<input type="text" name="username"><br/>
+		Enter password<input type="password" name="password"><br/>
+
+		<input type="submit" name="" value="CLICK">
+	</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+npm install --save body-parser
+
+
+
+
+
+
+// var http=require('http');
+// var url=require('url');
+
+var express = require('express');
+var app = express();
+
+
+app.get('/', function(req, res){
+
+    res.end("<h1>This is / url </h1>")
+})
+
+app.get("/login",function(req, res){
+    response={
+        username:req.query.username,
+        password:req.query.password
+    }
+    console.log(response)
+    res.end(JSON.stringify(response));
+})
+
+var server = app.listen(7070,function(){
+    
+    console.log("Server is started at 7070 port")
+})
+
+
+
+
+// http.createServer(function(req, res){
+//     // console.log(req.url);
+//     var q=url.parse(req.url,true).query;
+
+//     console.log(q.year)
+//     console.log(q.month)
+//     res.end("<h1>Hello This is message from server HEllo</h1>"+q.year+" "+q.month)
+// }).listen(6060)
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="http://localhost:7070/login" method="GET"> 
+		Enter username<input type="text" name="username"><br/>
+		Enter password<input type="password" name="password"><br/>
+
+		<input type="submit" name="" value="CLICK">
+	</form>
+
+</body>
+</html>
+
+
+
+
+
+var express = require('express');
+var app = express();
+
+
+app.get('/', function(req, res){
+    res.end("<h1>This is / url </h1>")
+})
+
+app.get("/login",function(req, res){
+    res.end("<h1>This is /login  is invoked</h1>");
+})
+
+var server = app.listen(7070,function(){
+    
+    console.log("Server is started at 7070 port")
+})
+
+
+
+
+
+
+
+hello
+
+
+nodemon server.js
+
+npm install -g nodemon
+
+
+var http=require('http');
+http.createServer(function(req, res){
+
+res.end("<h1>Hello This is message from server </h1>")
+
+}).listen(6060)
+
+
+
+
+********************** 10/7/2023
+
+
+1] npm install faker@5.1.0
+2] npm install fs
+3] npm install -g json-server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const faker=require('faker')
+const fs=require('fs')
+
+
+function generateUsers(){
+	let users=[];
+	for(let id=1;id<=100;id++){
+		let firstName=faker.name.firstName()
+		let lastName=faker.name.lastName()		
+		let email=faker.internet.email()
+
+		users.push({
+			"id":id,
+			"first_name":firstName,
+			"last_name":lastName,
+			"email":email
+		})
+	}
+	return {"users":users}
+}
+
+let dataObj=generateUsers();
+fs.writeFileSync('data.json',JSON.stringify(dataObj,null,'\t'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fetchData(){
+    fetch("data.json")
+    .then(response =>response.json())
+    .then(data => displayValues(data));
+}
+
+function displayValues(data){
+    // console.log(data)
+
+    tbl="<table border='2px'>"
+    for(var i=0; i<data.result.length; i++){
+        tbl+="<tr><td>"+data.result[i].name+"</td><td>"+data.result[i].marks.math+"</td><td>"+data.result[i].marks.english+"</td></tr>"
+    }
+
+    tbl+="</table>"
+    console.log(tbl)
+
+    document.getElementById('rec').innerHTML=tbl;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fetchData(){
+    fetch("data.json")
+    .then(response =>response.json())
+    .then(data => displayValues(data));
+}
+
+function displayValues(data){
+    console.log(data)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="myScript.js"></script>
+</head>
+
+<body>
+
+    <button onclick="fetchData()">Fetch Data</button>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    "result": [{
+            "name": "John",
+            "marks": {
+                "math": "78",
+                "english": "90"
+            }
+        },
+        {
+            "name": "Mike",
+            "marks": {
+                "math": "45",
+                "english": "76"
+            }
+        },
+        {
+            "name": "Peter",
+            "marks": {
+                "math": "45",
+                "english": "76"
+            }
+        }
+    ]
+}
+
+
+
+
+
+
+
+
+1] create another empty folder
+2] use command prompt to write command
+   
+   npm init -y
+
+3] Create some files like index.html main.js 
+   and write some code as per your likes
+    
+ 
+4] Use command prompt to write command
+
+   npm login
+   
+
+  
+5] to upload the same application use command 
+  
+     npm publish
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+1] Create a empty folder 
+2] use command prompt to write a command 
+
+   npm init 
+    
+
+3] npm install --save sbmmyappnewtraining@1.0.0
+
+
+
+
+
+sbmmyappnewtraining@1.0.0
+
+
+
+********************** 7/7/2023 *************
+
+
+
+https://www.programiz.com/javascript/use-strict
+    
+    
+    
+
+var temp = 100
+
+        {
+            temp = 300;
+            let temp2 = 200
+        }
+
+        console.log(temp)
+        console.log(temp2)
+
+
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        //ES5
+
+
+        function Employee(empId, empName, salary) {
+            this.empId = empId;
+            this.empName = empName;
+            this.salary = salary;
+
+            this.showEmployeeDetails = function() {
+                alert("Employee Details are " + this.empId + "" + this.empName + " and " + this.salary)
+            }
+        }
+        var empRecords = new Array();
+
+        empRecords.push(new Employee(101, "Manish", 10000))
+        empRecords.push(new Employee(102, "Anish", 20000))
+        empRecords.push(new Employee(103, "Tanish", 30000))
+        empRecords.push(new Employee(104, "Kanish", 40000))
+        empRecords.push(new Employee(105, "Vanish", 50000))
+
+
+        empRecords.forEach(rec => {
+            rec.showEmployeeDetails();
+        });
+
+
+        // var emp1 = new Employee(101, "Manish", 10000);
+        // emp1.showEmployeeDetails();
+
+        // var emp2 = new Employee(102, "Tanish", 20000);
+        // emp2.showEmployeeDetails();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        //ES5
+
+
+        function Employee() {
+            this.empId = 101;
+            this.empName = "Eshan";
+            this.salary = 1000;
+
+            this.showEmployeeDetails = function() {
+                alert("Employee Details are " + this.empId + "" + this.empName + " and " + this.salary)
+            }
+        }
+
+        var emp1 = new Employee();
+        emp1.showEmployeeDetails();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+2] 
+
+let initialValue = 0
+
+let obj = [{n: 5}, {n: 9}, {n: 13}, {n: 25}, {n: 40}]
+
+let sum = obj.reduce(function (accumulator, curValue) {
+
+    return accumulator + curValue.n
+
+}, initialValue)
+
+console.log(sum)
+
+
+3] let mulArray = [[3, 5], [1, 7], [12, 9]]
+
+let newArray = mulArray.reduce(function(accumulator, curValue) {
+
+    return accumulator.concat(curValue)
+
+  },[]
+
+)
+
+console.log(newArray)
+
+
+4] let myCars = ['Mercedes-Benz', 'Jeep', 'Ferrari', 'Lamborghini', 'Mercedes-Benz', 'BMW', 'Ferrari']
+
+let instances = myCars.reduce(function (allCars, car) {
+
+  if (car in allCars) {
+
+    allCars[car]++
+
+  }
+
+  else {
+
+    allCars[car] = 1
+
+  }
+
+  return allCars
+
+}, {})
+
+console.log(instances)
+
+
+
+5] Example 5: Grouping Objects With Array Reduce in JavaScript
+This example groups objects based on a property value using the JavaScript array reduce method.
+
+let student = [
+
+  { name: 'David', age: 23, hobby: 'fishing' },
+
+  { name: 'Rachel', age: 25, hobby: 'cooking' },
+
+  { name: 'Rahul', age: 22, hobby: 'fishing' }
+
+];
+
+function myFunc(obj, prop) {
+
+  return obj.reduce(function (acc, item) {
+
+    let key = item[prop]
+
+    if (!acc[key]) {
+
+      acc[key] = []
+
+    }
+
+    acc[key].push(item)
+
+    return acc
+
+  }, {})
+
+}
+
+let groupedStudent = myFunc(student, 'hobby')
+
+console.log(groupedStudent)
+
+
+6] Example 6: Removing Duplicates With Array Reduce
+For this example, we will create an array with multiple recurring values and then use the array reduce in JavaScript to eliminate those repeating values.
+
+let array = [2, 5, 7, 5, 12, 9, 7, 5, 4, 3, 5, 2, 4, 15]
+
+let newArray = array.reduce(function (accumulator, curValue) {
+
+  if (accumulator.indexOf(curValue) === -1) {
+
+    accumulator.push(curValue)
+
+  }
+
+  return accumulator
+
+}, [])
+
+console.log(newArray)
+
+
+
+
+
+
+//reduce
+
+        let num = [5, 9, 12, 24, 67]
+
+        let sum = num.reduce(function(val, curValue) {
+            return val + curValue
+        }, 0)
+
+        console.log(sum)
+
+        
+        
+        
+
+
+
+1] FIST PROGRAM
+
+<html>
+<body>
+
+<script type="text/javascript">
+document.write("<h1>This is a heading</h1>");
+document.write("<p>This is a paragraph.</p>");
+document.write("<p>This is another paragraph.</p>");
+</script>
+
+</body>
+</html>
+
+
+2] WRITTING COMMENTS 
+
+<html>
+<body>
+
+<script type="text/javascript">
+// Write a heading
+document.write("<h1>This is a heading</h1>");
+// Write two paragraphs:
+document.write("<p>This is a paragraph.</p>");
+document.write("<p>This is another paragraph.</p>");
+</script>
+
+</body>
+</html>
+
+
+3] MULTILINE COMMENT
+
+<html>
+<body>
+
+<script type="text/javascript">
+/*
+The code below will write
+one heading and two paragraphs
+*/
+document.write("<h1>This is a heading</h1>");
+document.write("<p>This is a paragraph.</p>");
+document.write("<p>This is another paragraph.</p>");
+</script>
+
+</body>
+</html>
+
+4] WRITTING VARIABLES
+
+<html>
+<body>
+
+<script type="text/javascript">
+var firstname;
+firstname="Hege";
+document.write(firstname);
+document.write("<br />");
+firstname="Tove";
+document.write(firstname);
+</script>
+
+<p>The script above declares a variable,
+assigns a value to it, displays the value, changes the value,
+and displays the value again.</p>
+
+</body>
+</html>
+
+
+
+5]IF ELSE
+
+<html>
+<body>
+
+<script type="text/javascript">
+var d = new Date();
+var time = d.getHours();
+
+if (time < 10) 
+  {
+  document.write("<b>Good morning</b>");
+  }
+</script>
+
+<p>This example demonstrates the If statement.</p>
+<p>If the time on your browser is less than 10, you will get a "Good morning" greeting.</p>
+
+</body>
+</html>
+
+6] IF ELSE
+
+<html>
+<body>
+
+<script type="text/javascript">
+var d = new Date();
+var time = d.getHours();
+
+if (time < 10) 
+{
+document.write("<b>Good morning</b>");
+}
+else
+{
+document.write("<b>Good day</b>");
+}
+</script>
+
+<p>
+This example demonstrates the If...Else statement.
+</p>
+
+<p>
+If the time on your browser is less than 10,
+you will get a "Good morning" greeting.
+Otherwise you will get a "Good day" greeting.
+</p>
+
+</body>
+</html>
+
+7] IF ELSE
+
+<html>
+<body>
+
+<script type="text/javascript">
+var r=Math.random();
+if (r>0.5)
+{
+document.write("<a href='http://www.w3schools.com'>Learn Web Development!</a>");
+}
+else
+{
+document.write("<a href='http://www.refsnesdata.no'>Visit Refsnes Data!</a>");
+}
+</script>
+
+</body>
+</html>
+
+
+
+8] SWITCH STATEMENT
+
+<html>
+<body>
+<script type="text/javascript">
+var d=new Date();
+var theDay=d.getDay();
+switch (theDay)
+{
+case 5:
+  document.write("<b>Finally Friday</b>");
+  break;
+case 6:
+  document.write("<b>Super Saturday</b>");
+  break;
+case 0:
+  document.write("<b>Sleepy Sunday</b>");
+  break;
+default:
+  document.write("<b>I'm really looking forward to this weekend!</b>");
+}
+</script>
+
+<p>This JavaScript will generate a different greeting based on what day it is. Note that Sunday=0, Monday=1, Tuesday=2, etc.</p>
+
+</body>
+</html>
+
+
+
+9] ALERT BOX
+
+<html>
+<head>
+<script type="text/javascript">
+function show_alert()
+{
+alert("Hello! I am an alert box!");
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="show_alert()" value="Show alert box" />
+
+</body>
+</html>
+
+
+10] ALERT BOX
+
+<html>
+<head>
+<script type="text/javascript">
+function disp_alert()
+{
+alert("Hello again! This is how we" + '\n' + "add line breaks to an alert box!");
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="disp_alert()" value="Display alert box" />
+
+</body>
+</html>
+
+
+
+11] CONFIRM BOX
+
+<html>
+<head>
+<script type="text/javascript">
+function show_confirm()
+{
+var r=confirm("Press a button!");
+if (r==true)
+  {
+  alert("You pressed OK!");
+  }
+else
+  {
+  alert("You pressed Cancel!");
+  }
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="show_confirm()" value="Show a confirm box" />
+
+</body>
+</html>
+
+
+12] PROMPT BOX
+
+<html>
+<head>
+<script type="text/javascript">
+function show_prompt()
+{
+var name=prompt("Please enter your name","Harry Potter");
+if (name!=null && name!="")
+  {
+  document.write("Hello " + name + "! How are you today?");
+  }
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="show_prompt()" value="Show prompt box" />
+
+</body>
+</html>
+
+
+
+13] CALL A FUNCTION
+
+
+<html>
+<head>
+<script type="text/javascript">
+function displaymessage()
+{
+alert("Hello World!");
+}
+</script>
+</head>
+
+<body>
+<form>
+<input type="button" value="Click me!" onclick="displaymessage()" />
+</form>
+
+<p>By pressing the button above, a function will be called. The function will alert a message.</p>
+
+</body>
+</html>
+
+
+
+14] FUNCTION WITH AN ARGUMENT
+
+<html>
+<head>
+<script type="text/javascript">
+function myfunction(txt)
+{
+alert(txt);
+}
+</script>
+</head>
+<body>
+
+<form>
+<input type="button" onclick="myfunction('Hello')" value="Call function">
+</form>
+
+<p>By pressing the button above, a function will be called with "Hello" as a parameter. The function will alert the parameter.</p>
+
+</body>
+</html>
+
+
+15] FUNCTION WITH AN ARGUMENT
+
+<html> 
+<head> 
+<script type="text/javascript"> 
+function myfunction(txt) 
+{ 
+alert(txt);
+} 
+</script> 
+</head> 
+
+<body> 
+<form> 
+<input type="button" 
+onclick="myfunction('Good Morning!')" 
+value="In the Morning"> 
+
+<input type="button" 
+onclick="myfunction('Good Evening!')" 
+value="In the Evening"> 
+</form> 
+
+<p>
+When you click on one of the buttons, a function will be called. The function will alert
+the argument that is passed to it.
+</p>
+
+</body> 
+</html> 
+
+
+16] FUNCTION WITH RETURN VALUE
+
+<html>
+<head>
+<script type="text/javascript">
+function myFunction()
+{
+return ("Hello world!");
+}
+</script>
+</head>
+<body>
+
+<script type="text/javascript">
+document.write(myFunction())
+</script>
+
+</body>
+</html>
+
+
+16] FUNCTION WITH ARGUMENT AND RETURN VALUE
+
+<html>
+<head>
+<script type="text/javascript">
+function product(a,b)
+{
+return a*b;
+}
+</script>
+</head>
+
+<body>
+<script type="text/javascript">
+document.write(product(4,3));
+</script>
+
+<p>The script in the body section calls a function with two parameters (4 and 3).</p>
+<p>The function will return the product of these two parameters.</p>
+</body>
+</html>
+
+17] FOR LOOP
+
+<html>
+<body>
+
+<script type="text/javascript">
+var i=0;
+for (i=0;i<=5;i++)
+{
+document.write("The number is " + i);
+document.write("<br />");
+}
+</script>
+
+<p>Explanation:</p>
+
+<p>This for loop starts with i=0.</p>
+
+<p>As long as <b>i</b> is less than, or equal to 5, the loop will continue to run.</p>
+
+<p><b>i</b> will increase by 1 each time the loop runs.</p>
+
+</body>
+</html>
+
+18] LOOPING THROUGH HTMLHEADER
+
+<html>
+<body>
+
+<script type="text/javascript">
+for (i = 1; i <= 6; i++)
+{
+document.write("<h" + i + ">This is heading " + i);
+document.write("</h" + i + ">");
+}
+</script>
+
+</body>
+</html>
+
+
+19] WHILE LOOP
+
+<html>
+<body>
+
+<script type="text/javascript">
+i=0;
+while (i<=5)
+{
+document.write("The number is " + i);
+document.write("<br />");
+i++;
+}
+</script>
+
+<p>Explanation:</p>
+<p><b>i</b> is equal to 0.</p>
+<p>While <b>i</b> is less than , or equal to, 5, the loop will continue to run.</p>
+<p><b>i</b> will increase by 1 each time the loop runs.</p>
+
+</body>
+</html>
+
+20] DO WHILE LOOP
+
+
+<html>
+<body>
+
+<script type="text/javascript">
+i = 0;
+do
+{
+document.write("The number is " + i);
+document.write("<br />");
+i++;
+}
+while (i <= 5)
+</script>
+
+<p>Explanation:</p>
+
+<p><b>i</b>  equal to 0.</p>
+
+<p>The loop will run</p>
+
+<p><b>i</b> will increase by 1 each time the loop runs.</p>
+
+<p>While <b>i</b> is less than , or equal to, 5, the loop will continue to run.</p>
+
+
+</body>
+</html>
+
+21] BREAK A LOOP
+
+
+<html>
+<body>
+<script type="text/javascript">
+var i=0;
+for (i=0;i<=10;i++)
+{
+if (i==3)
+  {
+  break;
+  }
+document.write("The number is " + i);
+document.write("<br />");
+}
+</script>
+<p>Explanation: The loop will break when i=3.</p>
+</body>
+</html>
+
+22] USING FOR IN STATEMENT TO LOOP THROUGH ELEMENTS OF AN OBJECT
+
+<html>
+<body>
+<script type="text/javascript">
+
+var person={fname:"John",lname:"Doe",age:25}; 
+
+for (x in person)
+{
+document.write(person[x] + " ");
+}
+
+</script>
+</body>
+</html>
+
+23] ADDING AN EVENT
+
+<html>
+<head>
+<script type="text/javascript">
+function displayDate()
+{
+document.getElementById("demo").innerHTML=Date();
+}
+</script>
+</head>
+<body>
+
+<h1>My First Web Page</h1>
+<p id="demo">This is a paragraph.</p>
+
+<button type="button" onclick="displayDate()">Display Date</button>
+
+</body>
+</html> 
+
+24] ADDING AN MOUSE OVER EVENT
+
+<html>
+<head>
+<script type="text/javascript">
+function writeText(txt)
+{
+document.getElementById("desc").innerHTML=txt;
+}
+</script>
+</head>
+
+<body>
+<img src ="planets.gif" width ="145" height ="126" alt="Planets" usemap="#planetmap" />
+
+<map name="planetmap">
+<area shape ="rect" coords ="0,0,82,126"
+onmouseover="writeText('The Sun and the gas giant planets like Jupiter are by far the largest objects in our Solar System.')"
+href ="sun.htm" target ="_blank" alt="Sun" />
+
+<area shape ="circle" coords ="90,58,3"
+onmouseover="writeText('The planet Mercury is very difficult to study from the Earth because it is always so close to the Sun.')"
+href ="mercur.htm" target ="_blank" alt="Mercury" />
+
+<area shape ="circle" coords ="124,58,8"
+onmouseover="writeText('Until the 1960s, Venus was often considered a twin sister to the Earth because Venus is the nearest planet to us, and because the two planets seem to share many characteristics.')"
+href ="venus.htm" target ="_blank" alt="Venus" />
+</map> 
+
+<p id="desc">Mouse over the sun and the planets and see the different descriptions.</p>
+
+</body>
+</html>
+
+
+
+25] TRY CATCH BLOCK
+
+<html>
+<head>
+<script type="text/javascript">
+var txt="";
+function message()
+{
+try
+  {
+  adddlert("Welcome guest!");
+  }
+catch(err)
+  {
+  txt="There was an error on this page.\n\n";
+  txt+="Error description: " + err.description + "\n\n";
+  txt+="Click OK to continue.\n\n";
+  alert(txt);
+  }
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="View message" onclick="message()" />
+</body>
+
+</html>
+
+
+26] TRY CATCH BLOCK WITH CONFIRM BOX
+
+<html>
+<head>
+<script type="text/javascript">
+var txt="";
+function message()
+{
+try
+  {
+  adddlert("Welcome guest!");
+  }
+catch(err)
+  {
+  txt="There was an error on this page.\n\n";
+  txt+="Click OK to continue viewing this page,\n";
+  txt+="or Cancel to return to the home page.\n\n";
+  if(!confirm(txt))
+    {
+    document.location.href="http://www.w3schools.com/";
+    }
+  }
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="View message" onclick="message()" />
+</body>
+
+</html>
+
+
+27] ON ERROR EVENT
+
+
+<html>
+<head>
+<script type="text/javascript">
+onerror=handleErr;
+var txt="";
+
+function handleErr(msg,url,l)
+{
+txt="There was an error on this page.\n\n";
+txt+="Error: " + msg + "\n";
+txt+="URL: " + url + "\n";
+txt+="Line: " + l + "\n\n";
+txt+="Click OK to continue.\n\n";
+alert(txt);
+return true;
+}
+
+function message()
+{
+adddlert("Welcome guest!");
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="View message" onclick="message()" />
+</body>
+
+</html>
+
+
+28] TIMMING
+
+<html>
+<head>
+<script type="text/javascript">
+function timeMsg()
+{
+var t=setTimeout("alertMsg()",3000);
+}
+function alertMsg()
+{
+alert("Hello");
+}
+</script>
+</head>
+
+<body>
+<form>
+<input type="button" value="Display alert box in 3 seconds" onClick="timeMsg()" />
+</form>
+</body>
+
+</html>
+
+
+29] TIMMING IN INFINITE LOOPING
+
+<html>
+<head>
+<script type="text/javascript">
+var c=0;
+var t;
+var timer_is_on=0;
+
+function timedCount()
+{
+document.getElementById('txt').value=c;
+c=c+1;
+t=setTimeout("timedCount()",1000);
+}
+
+function doTimer()
+{
+if (!timer_is_on)
+  {
+  timer_is_on=1;
+  timedCount();
+  }
+}
+
+function stopCount()
+{
+clearTimeout(t);
+timer_is_on=0;
+}
+</script>
+</head>
+
+<body>
+<form>
+<input type="button" value="Start count!" onclick="doTimer()" />
+<input type="text" id="txt" />
+<input type="button" value="Stop count!" onclick="stopCount()" />
+</form>
+<p>
+Click on the "Start count!" button above to start the timer. The input field will count forever, starting at 0. Click on the "Stop count!" button to stop the counting. Click on the "Start count!" button to start the timer again.
+</p>
+</body>
+</html>
+
+
+
+30] ACCESSING MEMBERS THROUGH OBJECT
+
+<html>
+<body>
+
+<script type="text/javascript">
+function person(firstname,lastname,age,eyecolor)
+{
+this.firstname=firstname;
+this.lastname=lastname;
+this.age=age;
+this.eyecolor=eyecolor;
+}
+
+myFather=new person("John","Doe",50,"blue");
+
+document.write(myFather.firstname + " is " + myFather.age + " years old.");
+</script>
+
+</body>
+</html>
+
+
+31] CREATE AN DIRECT INSTANCE OF AN OBJECT
+
+<html>
+<body>
+
+<script type="text/javascript">
+personObj={firstname:"John",lastname:"Doe",age:50,eyecolor:"blue"}
+
+document.write(personObj.firstname + " is " + personObj.age + " years old.");
+</script>
+
+</body>
+</html>
+
+
+32] CLOCK CREATION
+
+<html>
+<head>
+<script type="text/javascript">
+function startTime()
+{
+var today=new Date();
+var h=today.getHours();
+var m=today.getMinutes();
+var s=today.getSeconds();
+// add a zero in front of numbers<10
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);
+}
+
+function checkTime(i)
+{
+if (i<10)
+  {
+  i="0" + i;
+  }
+return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+<div id="txt"></div>
+</body>
+</html>
+
+
+
+33] RETURNING LENGTH OF STRING
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var txt = "Hello World!";
+document.write(txt.length);
+
+</script>
+
+</body>
+</html>
+
+
+34] CREATING AN ARRAY
+
+<html>
+<body>
+
+<script type="text/javascript">
+var i;
+var mycars = new Array();
+mycars[0] = "Saab";
+mycars[1] = "Volvo";
+mycars[2] = "BMW";
+
+for (i=0;i<mycars.length;i++)
+{
+document.write(mycars[i] + "<br />");
+}
+</script>
+
+</body>
+</html>
+
+35] JOIN TWO ARRAYS
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var parents = ["Jani", "Tove"];
+var children = ["Cecilie", "Lone"];
+var family = parents.concat(children);
+document.write(family);
+
+</script>
+
+</body>
+</html>
+
+
+36] JOIN THREE ARRAYS
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var parents = ["Jani", "Tove"];
+var brothers = ["Stale", "Kai Jim", "Borge"];
+var children = ["Cecilie", "Lone"];
+var family = parents.concat(brothers, children);
+document.write(family);
+
+</script>
+
+</body>
+</html>
+
+37] JOIN ALL ELEMENTS OF ARRAY TO STRING
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write(fruits.join() + "<br />");
+document.write(fruits.join("+") + "<br />");
+document.write(fruits.join(" and "));
+
+</script>
+
+</body>
+</html>
+
+38] REMOVE THE LAST ELEMENT OF AN ARRAY
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write(fruits.pop() + "<br />");
+document.write(fruits + "<br />");
+document.write(fruits.pop() + "<br />");
+document.write(fruits);
+
+</script>
+
+</body>
+</html>
+
+39] ADD NEW ELEMENTS AD THE END OF ARRAY
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write(fruits.push("Kiwi") + "<br />");
+document.write(fruits.push("Lemon","Pineapple") + "<br />");
+document.write(fruits);
+
+</script>
+
+</body>
+</html>
+
+40] REVERSE ARRAY
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write(fruits.reverse());
+
+</script>
+
+</body>
+</html>
+
+41] REMOVE FIRST ELEMENT FROM ARRAY
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write(fruits.shift() + "<br />");
+document.write(fruits + "<br />");
+document.write(fruits.shift() + "<br />");
+document.write(fruits);
+
+</script>
+
+</body>
+</html>
+
+
+42] SORT AN ARRAY
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write(fruits.sort());
+
+</script>
+
+</body>
+</html>
+
+
+43] SORT NUMERIVALY ASC
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+function sortNumber(a, b)
+{
+return a - b;
+}
+
+var n = ["10", "5", "40", "25", "100", "1"];
+document.write(n.sort(sortNumber));
+
+</script>
+
+</body>
+</html>
+
+44] SORT NUMBERIVCAL DESC
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+function sortNumber(a, b)
+{
+return b - a;
+}
+
+var n = ["10", "5", "40", "25", "100", "1"];
+document.write(n.sort(sortNumber));
+
+</script>
+
+</body>
+</html>
+
+
+45] ADD ELEMENT AT SPECIFIC POSITION
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.write("Removed: " + fruits.splice(2,0,"Lemon") + "<br />");
+document.write(fruits);
+
+</script>
+
+</body>
+</html>
+
+
+46] CHECK BOOLEAN VALUE
+
+<html>
+<body>
+
+<script type="text/javascript">
+var b1=new Boolean( 0);
+var b2=new Boolean(1);
+var b3=new Boolean("");
+var b4=new Boolean(null);
+var b5=new Boolean(NaN);
+var b6=new Boolean("false");
+
+document.write("0 is boolean "+ b1 +"<br />");
+document.write("1 is boolean "+ b2 +"<br />");
+document.write("An empty string is boolean "+ b3 + "<br />");
+document.write("null is boolean "+ b4+ "<br />");
+document.write("NaN is boolean "+ b5 +"<br />");
+document.write("The string 'false' is boolean "+ b6 +"<br />");
+</script>
+
+</body>
+</html>
+
+
+47] MATH.MAX
+
+<html>
+<body>
+
+<script type="text/javascript">
+document.write(Math.max(5,10) + "<br />");
+document.write(Math.max(0,150,30,20,38) + "<br />");
+document.write(Math.max(-5,10) + "<br />");
+document.write(Math.max(-5,-10) + "<br />");
+document.write(Math.max(1.5,2.5));
+</script>
+
+</body>
+</html>
+
+48] MATH.MIN
+
+<html>
+<body>
+
+<script type="text/javascript">
+
+document.write(Math.min(5,10) + "<br />");
+document.write(Math.min(0,150,30,20,38) + "<br />");
+document.write(Math.min(-5,10) + "<br />");
+document.write(Math.min(-5,-10) + "<br />");
+document.write(Math.min(1.5,2.5));
+
+</script>
+
+</body>
+</html>
+
+49] CONVERT CELCSIOUS TO FAHRENHEIT
+
+<html>
+<head>
+<script type="text/javascript">
+function convert(degree)
+{
+if (degree=="C")
+ {
+ F=document.getElementById("c").value * 9 / 5 + 32;
+ document.getElementById("f").value=Math.round(F);
+ }
+else	
+ {
+ C=(document.getElementById("f").value -32) * 5 / 9;
+ document.getElementById("c").value=Math.round(C);
+ }
+}
+</script>
+</head>
+
+<body>
+<p></p><b>Insert a number into one of the input fields below:</b></p>
+<form>
+<input id="c" name="c" onkeyup="convert('C')"> degrees Celsius<br />
+equals<br /> 
+<input id="f" name="f" onkeyup="convert('F')"> degrees Fahrenheit 
+</form>
+<p>Note that the <b>Math.round()</b> method is used, so that the result will be returned as an integer.</p>
+</body>
+
+</html>
+
+
+50] DISPALY AN ALLERT BOX
+
+
+<html>
+<head>
+<script type="text/javascript">
+function show_alert()
+{
+alert("Hello! I am an alert box!");
+}
+</script>
+</head>
+<body>
+
+<input type="button" onclick="show_alert()" value="Show alert box" />
+
+</body>
+</html>
+
+
+
+51] OPEN AN WINDOW
+
+<html>
+<head>
+<script type="text/javascript">
+function open_win() 
+{
+window.open("http://www.microsoft.com/");
+window.open("http://www.w3schools.com/");
+}
+</script>
+</head>
+
+<body>
+<form>
+<input type=button value="Open Windows" onclick="open_win()">
+</form>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var values = [10, 20, 30, 40, 50, 60, 70]
+
+        // values.forEach(element => {
+        //     alert(element)
+        // });
+
+        //map 
+
+        // values.map((ele, index, numbers) => {
+        //     console.log(index + " => " + ele + " = > " + numbers)
+        // });
+
+        // var resul1 = values.map(val => val * 2)
+        // console.log(resul1)
+
+        // console.log(resul1);
+
+        //filter
+
+        var collection = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 43, 65, 767, 87]
+
+        var even = collection.filter(ele => ele % 2 == 0)
+            // console.log(even)
+
+
+        var employee = [{
+            "id": 101,
+            "name": "Eshan",
+            "salary": 10000
+        }, {
+            "id": 102,
+            "name": "Tanish",
+            "salary": 20000
+        }, {
+            "id": 103,
+            "name": "Manish",
+            "salary": 30000
+        }, {
+            "id": 104,
+            "name": "Paresh",
+            "salary": 40000
+        }, {
+            "id": 105,
+            "name": "Anand",
+            "salary": 50000
+        }]
+
+
+
+        var result2 = employee.filter(emp => emp.salary >= 40000)
+        console.log(result2)
+
+
+        //reduce
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+        var resul1 = values.map(val => val * 2)
+        console.log(resul1)
+        
+        
+        
+        
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var values = [10, 20, 30, 40, 50, 60, 70]
+
+        // values.forEach(element => {
+        //     alert(element)
+        // });
+
+        //map 
+
+        values.map((ele, index, numbers) => {
+            console.log(index + " => " + ele + " = > " + numbers)
+        });
+
+        // console.log(resul1);
+
+        //filter
+
+
+        //reduce
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        var friendList = new Array();
+
+        function saveData() {
+            var name = document.getElementById('fname').value
+
+            friendList.push(name)
+            alert("Name is saved in friend list")
+        }
+
+
+        function displayRecords() {
+            // friendList.forEach(friend => {
+            //     document.getElementById('flist').append(friend)
+            // });
+
+            tbl = "<table border='2px'>"
+            for (let index = 0; index < friendList.length; index++) {
+                tbl += "<tr><td>" + friendList[index] + "</td></tr>"
+            }
+            document.getElementById('flist').innerHTML = tbl
+        }
+
+
+        function searchData() {
+            var searchName = document.getElementById('searchName').value
+            var flag = 0;
+            for (let index = 0; index < friendList.length; index++) {
+                if (friendList[index] == searchName) {
+                    alert("Name found")
+                    flag = 1;
+                }
+            }
+            if (flag == 0) {
+                alert("Record not found")
+            }
+
+        }
+
+        // var arr = [10, 20, 30, 40, 50]
+        // for (var i = 0; i < arr.length; i++)
+        //     document.write(arr[i] + "<br/>")
+
+
+
+        //foreach with ES6
+        // arr.forEach(ele => {
+        //     document.write(ele + "<br/>")
+        // });
+    </script>
+</head>
+
+<body>
+
+    <table border="2px">
+        <tr>
+            <td>
+                Enter your friends name <input type="text" id="fname">
+            </td>
+            <td>
+                <button onclick="saveData()">SAVE DATA</button>
+            </td>
+            <td>
+                <button onclick="displayRecords()">Display DATA</button>
+            </td>
+            <td>
+                Enter the name to search in the list<input type="text" id="searchName">
+                <button onclick="searchData()">Search Data</button>
+            </td>
+        </tr>
+    </table>
+
+    <div id="flist"></div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        var friendList = new Array();
+
+        function saveData() {
+            var name = document.getElementById('fname').value
+
+            friendList.push(name)
+            alert("Name is saved in friend list")
+        }
+
+
+        // var arr = [10, 20, 30, 40, 50]
+        // for (var i = 0; i < arr.length; i++)
+        //     document.write(arr[i] + "<br/>")
+
+
+
+        //foreach with ES6
+        // arr.forEach(ele => {
+        //     document.write(ele + "<br/>")
+        // });
+    </script>
+</head>
+
+<body>
+
+    <table border="2px">
+        <tr>
+            <td>
+                Enter your friends name <input type="text" id="fname">
+            </td>
+            <td>
+                <button onclick="saveData()">SAVE DATA</button>
+            </td>
+        </tr>
+    </table>
+
+
+</body>
+
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        var arr = [10, 20, 30, 40, 50]
+            // for (var i = 0; i < arr.length; i++)
+            //     document.write(arr[i] + "<br/>")
+
+
+
+        //foreach with ES6
+        // arr.forEach(ele => {
+        //     document.write(ele + "<br/>")
+        // });
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var db;
+
+        function createDatabase() {
+            db = openDatabase("mywebdb", "1.0", "THis is just a simple database", 2 * 1024 * 1024)
+            alert("Database is created successfully...")
+        }
+
+        function createTable() {
+            db.transaction(function(tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS myEmployee(id unique,name,salary)")
+                alert("Table is created successfully")
+            })
+
+        }
+
+        function saveData() {
+            var id = document.getElementById('empId').value
+            var name = document.getElementById('empName').value
+            var salary = document.getElementById('salary').value
+
+            db.transaction(function(tx) {
+                console.log("INSERT INTO myEmployee(id,name,salary) VALUES (" + id + ",'" + name + "'," + salary + ")")
+                tx.executeSql("INSERT INTO myEmployee(id,name,salary) VALUES (" + id + ",'" + name + "'," + salary + ")")
+                alert("Data is inserted successfully")
+            })
+        }
+
+
+        function displayData() {
+            tbl = "<table border='2px'>"
+            db.transaction(function(tx) {
+                tx.executeSql("select * from myEmployee", [], function(tx, result) {
+                    var len = result.rows.length
+                    if (len == 0) {
+                        alert("No record found")
+                    } else {
+                        alert(len)
+                        for (i = 0; i < len; i++) {
+                            alert("<tr><td>" + result.rows.item(i).id + "</td><td>" + result.rows.item(i).name + "</td><td>" + result.rows.item(i).salary + "</td></tr>")
+                            tbl += "<tr><td>" + result.rows.item(i).id + "</td><td>" + result.rows.item(i).name + "</td><td>" + result.rows.item(i).salary + "</td></tr>"
+                        }
+                        tbl += "</table>"
+                        document.getElementById("result").innerHTML = tbl;
+
+                    }
+                })
+
+            })
+
+            // alert(tbl)
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="createDatabase()">Create Database</button>
+    <button onclick="createTable()">Create Table</button>
+
+    <table border="2px">
+        <tr>
+            <td>Enter empId</td>
+            <td><input type="text" id="empId"></td>
+        </tr>
+        <tr>
+            <td>Enter name</td>
+            <td><input type="text" id="empName"></td>
+        </tr>
+        <tr>
+            <td>Enter Salary</td>
+            <td><input type="text" id="salary"></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="saveData()">Save Data</button>
+            </td>
+            <td>
+                <button onclick="displayData()">Display Data</button>
+            </td>
+        </tr>
+    </table>
+
+    <div id="result"></div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var db;
+
+        function createDatabase() {
+            db = openDatabase("mywebdb", "1.0", "THis is just a simple database", 2 * 1024 * 1024)
+            alert("Database is created successfully...")
+        }
+
+        function createTable() {
+            db.transaction(function(tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS myEmployee(id unique,name,salary)")
+                alert("Table is created successfully")
+            })
+
+        }
+
+        function saveData() {
+            var id = document.getElementById('empId').value
+            var name = document.getElementById('empName').value
+            var salary = document.getElementById('salary').value
+
+            db.transaction(function(tx) {
+                console.log("INSERT INTO myEmployee(id,name,salary) VALUES (" + id + ",'" + name + "'," + salary + ")")
+                tx.executeSql("INSERT INTO myEmployee(id,name,salary) VALUES (" + id + ",'" + name + "'," + salary + ")")
+                alert("Data is inserted successfully")
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="createDatabase()">Create Database</button>
+    <button onclick="createTable()">Create Table</button>
+
+    <table border="2px">
+        <tr>
+            <td>Enter empId</td>
+            <td><input type="text" id="empId"></td>
+        </tr>
+        <tr>
+            <td>Enter name</td>
+            <td><input type="text" id="empName"></td>
+        </tr>
+        <tr>
+            <td>Enter Salary</td>
+            <td><input type="text" id="salary"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="saveData()">Save Data</button>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+
+
+
+******************************************** 06/07/2023 **************
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var db;
+
+        function createDatabase() {
+            db = openDatabase("mywebdb", "1.0", "THis is just a simple database", 2 * 1024 * 1024)
+            alert("Database is created successfully...")
+        }
+
+        function createTable() {
+            db.transaction(function(tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS myEmployee(id unique,name,salary)")
+                alert("Table is created successfully")
+            })
+
+        }
+
+        function saveData() {
+            var id = document.getElementById('empId').value
+            var name = document.getElementById('empName').value
+            var salary = document.getElementById('salary').value
+
+            db.transaction(function(tx) {
+                console.log("INSERT INTO myEmployee(id,name,salary) VALUES (" + id + ",'" + name + "'," + salary + ")")
+                tx.executeSql("INSERT INTO myEmployee(id,name,salary) VALUES (" + id + ",'" + name + "'," + salary + ")")
+                alert("Data is inserted successfully")
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="createDatabase()">Create Database</button>
+    <button onclick="createTable()">Create Table</button>
+
+    <table border="2px">
+        <tr>
+            <td>Enter empId</td>
+            <td><input type="text" id="empId"></td>
+        </tr>
+        <tr>
+            <td>Enter name</td>
+            <td><input type="text" id="empName"></td>
+        </tr>
+        <tr>
+            <td>Enter Salary</td>
+            <td><input type="text" id="salary"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="saveData()">Save Data</button>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var db;
+
+        function createDatabase() {
+            db = openDatabase("mywebdb", "1.0", "THis is just a simple database", 2 * 1024 * 1024)
+            alert("Database is created successfully...")
+        }
+
+        function createTable() {
+            db.transaction(function(tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS myEmployee(id unique,name,salary)")
+                alert("Table is created successfully")
+            })
+
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="createDatabase()">Create Database</button>
+    <button onclick="createTable()">Create Table</button>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var db;
+
+        function createDatabase() {
+            db = openDatabase("mywebdb", "1.0", "THis is just a simple database", 2 * 1024 * 1024)
+            alert("Database is created successfully...")
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="createDatabase()">Create Database</button>
+
+</body>
+
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <p><button onclick="clickCounter()" type="button">Click me!</button></p>
+    <div id="result"></div>
+    <p>Click the button to see the counter increase.</p>
+</body>
+
+</html>
+
+<script>
+    function clickCounter() {
+        if (typeof(Storage) !== "undefined") {
+            if (sessionStorage.clickcount) {
+                sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+            } else {
+                sessionStorage.clickcount = 1;
+            }
+            document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+        } else {
+            document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function saveData() {
+            // Check browser support
+            if (typeof(Storage) != "undefined") {
+                // Store
+                localStorage.setItem("newname", "eshan");
+
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        }
+
+        function getData() {
+            // Check browser support
+            if (typeof(Storage) != "undefined") {
+                // Retrieve
+                document.getElementById("result").innerHTML = localStorage.getItem("newname");
+            } else {
+                document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="saveData()">Save</button>
+    <button onclick="getData()">Retrive</button>
+    <div id="result"></div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+8.1. Introduction
+The Web Storage API defines a standard for how we can save simple data locally
+on a user’s computer or device. Before the emergence of the Web Storage standard, web developers often stored user information in cookies, or by using plugins. With Web Storage, we now have a standardized definition for how to store up to 5MB of simple data created by our websites or web applications. Better still, Web Storage already works in Internet Explorer 8.0!
+Web Storage is a great complement to Offline Web Applications, because you need somewhere to store all that user data while you’re working offline, andWeb Storage provides it.
+Two kinds of storage
+session Storage
+Session storage lets us keep track of data specific to one window or tab. It allows us to isolate information in each window. Even if the user is visiting the same site in two windows, each window will have its own individual session storage object and thus have separate, distinct data.
+Session storage is not persistent—it only lasts for the duration of a user’s session
+on a specific site (in other words, for the time that a browser window or tab is open
+and viewing that site).
+Local Storage
+Unlike session storage, local storage allows us to save persistent data to the user’s computer, via the browser. When a user revisits a site at a later date, any data saved to local storage can be retrieved.
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p id="demo"></p>
+    <button onclick="getLocation()">Get Location</button>
+    <script>
+        var x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<head>
+<title>SVG</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<h2>HTML5 SVG Gradient Ellipse</h2>
+<svg id="svgelem" height="200">
+   <defs>
+      <radialGradient id="gradient" cx="50%" cy="50%" r="50%"
+      fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgb(200,200,200);
+      stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:rgb(0,0,255);
+      stop-opacity:1"/>
+      </radialGradient>
+   </defs>
+   <ellipse cx="100" cy="50" rx="100" ry="50" 
+      style="fill:url(#gradient)" />
+</svg>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<head>
+<title>SVG</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<h2>HTML5 SVG Polyline</h2>
+<svg id="svgelem" height="200">
+ <polyline points="0,0 0,20 20,20 20,40 40,40 40,60" fill="red" />
+</svg>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<head>
+<title>SVG</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<h2>HTML5 SVG Polygon</h2>
+<svg id="svgelem" height="200">
+    <polygon  points="20,10 300,20, 170,50" fill="red" />
+</svg>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<head>
+<title>SVG</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<h2>HTML5 SVG Ellipse</h2>
+<svg id="svgelem" height="200">
+    <ellipse cx="100" cy="50" rx="100" ry="50" fill="red" />
+</svg>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<head>
+<title>SVG</title>
+<meta charset="utf-8" />
+</head>
+<body>
+<h2>HTML5 SVG Line</h2>
+<svg id="svgelem" height="200">
+    <line x1="0" y1="0" x2="200" y2="100"
+          style="stroke:red;stroke-width:2"/>
+</svg>
+</body>
+</html>
+
+
+
+
+
+
+
+<svg id="svgelem" height="200">
+            <rect id="redrect" width="20" height="20" fill="green" />
+
+            <circle id="redcircle" cx="40" cy="40" r="20" fill="red" />
+
+
+        </svg>
+
+        
+        
+        
+        
+<svg id="svgelem" height="200">
+    <circle id="redcircle" cx="50" cy="50" r="50" fill="red" />
+</svg>
+
+
+
+
+
+
+
+
+
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <msup><mi>a</mi><mn>2</mn></msup>
+        <mo>+</mo>
+        <msup><mi>b</mi><mn>2</mn></msup>
+        <mo>=</mo>
+        <msup><mi>c</mi><mn>2</mn></msup>
+      </mrow>
+    </math>
+
+    
+    
+    
+
+https://www.w3.org/TR/2010/REC-MathML3-20101021/chapter4.html#contm.opel
+    
+    
+    
+    
+    
+    
+
+<form>
+	<p><a href="/index.php" accesskey="I"> Index Page </a></p>
+	<input type="text" accesskey="P">
+</form>
+
+
+
+
+
+
+<ul>
+<li><a href="here.html" tabindex="1"> step1 </a></li>
+<li><a href="here.html" tabindex="3"> step3 </a></li>
+<li><a href="here.html" tabindex="2"> step2 </a></li>
+</ul>
+
+
+
+
+
+
+<select name="country">
+<optgroup label="Africa">
+	<option value="gam">Gambia</option>
+	<option value="mad">Madagascar</option>
+	<option value="nam">Namibia</option>
+</optgroup>
+<optgroup label="India">
+	<option value="Mum">Mumbai</option>
+	<option value="che">Chennai</option>
+	<option value="bang">Bangalore</option>
+</optgroup>
+</select>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 50%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Progress bar Example</legend>
+        <progress value="60" max="100"></progress> 60%
+    </fieldset>
+
+    <fieldset>
+        <legend>Meter Example</legend>
+
+        50 of 100 <meter min="0" max="100" value="50"></meter>
+
+    </fieldset>
+
+
+    <fieldset>
+        <legend>Data list example</legend>
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+    </fieldset>
+
+    <fieldset>
+
+        Enter your name<input type="name" placeholder="Enter your name here">
+        <br/> Enter your salary <input type="text" value="10000" readonly>
+
+        <form>
+            Enter your name <input type="text" pattern="[a-zA-Z]*">
+            <input type="submit" value="CLICK">
+        </form>
+
+    </fieldset>
+
+    <fieldset>
+        <form oninput="o.value=a.value*b.value">
+            <input name="a" value="2" type="number"> x
+            <input name="b" value="3" type="number"> =
+            <output name="o">6</output>
+        </form>
+    </fieldset>
+</body>
+
+</html>
+
+
+
+
+
+Example 1 - Define keywords for search engines:
+     <meta name="keywords" content="HTML, CSS, XML, 
+      XHTML, JavaScript">
+Example 2 - Define a description of your web page
+  <meta name="description" content="Free Web tutorials on  
+        HTML and CSS">
+Example 3 - Define the author of a page:
+      <meta name="author" content="Hege Refsnes">
+Example 4 - Refresh document every 30 seconds:
+     <meta http-equiv="refresh" content="30">
+
+
+
+
+
+
+
+***************************************** 5/7/2023 *****************
+
+
+
+
+
+
+
+https://quizizz.com/join?gc=057737
+    
+    
+    
+
+
+
+
+
+
+
+1] Accept the user sign up details from the html page and display all the details in tabular format using javascript
+2] Design a page with some products along with price 
+   user will select some product and quantity 
+
+   based on the selection show user with total price 
+   
+   if total is above 1000 apply 10% discount on final total
+
+3]   
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        table {
+            background-color: rgb(204, 230, 118);
+            font-size: 20px;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function getData() {
+            var name = document.getElementById("uname").value
+            var email = document.getElementById("email").value
+            var dob = document.getElementById("dob").value
+            var techid = document.getElementById("techid").value
+
+            document.getElementById('d1').innerHTML = "User details:: " + name + " email  " + email + " dob  " + dob + " techid  " + techid
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <table border="2px" cellspacing="10" cellpadding="10">
+        <tr>
+            <td>Enter your name</td>
+            <td><input type="text" id="uname" /></td>
+        </tr>
+        <tr>
+            <td>Enter your email id </td>
+            <td> <input type="email" id="email" /></td>
+        </tr>
+
+        <tr>
+            <td>Enter your date of birth </td>
+            <td> <input type="date" id="dob" /></td>
+        </tr>
+
+        <tr>
+            <td>Select Technology</td>
+            <td><select id="techid">
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="JAVA">JAVA</option>
+                <option value="HTML">HTML</option>
+
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"> <button style="background-color:rgb(196, 172, 63)" onclick="getData()">Display Data</button> </td>
+        </tr>
+
+    </table>
+
+
+    <div id="d1"></div>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        function addition() {
+            var val1 = parseInt(prompt("Enter first value"))
+            var val2 = parseInt(prompt("Enter second value"))
+
+            alert("Addition = " + (val1 + val2))
+        }
+
+        function subtraction(val1, val2) {
+            alert("Subtraction = " + (val1 - val2))
+        }
+
+        function multiplication() {
+            var val1 = parseInt(prompt("Enter first value"))
+            var val2 = parseInt(prompt("Enter second value"))
+            return val1 * val2;
+        }
+
+        function division(val1, val2) {
+            return val1 / val2;
+        }
+        var choice = parseInt(prompt("1] Addition\n2] Subtraction\n3] Multiplication\n4] Division\n\nEnter your choice"))
+
+        switch (choice) {
+
+            case 1:
+                addition();
+                break;
+
+            case 2:
+                var val1 = parseInt(prompt("Enter first value"))
+                var val2 = parseInt(prompt("Enter second value"))
+
+                subtraction(val1, val2);
+                break;
+
+            case 3:
+
+                var res = multiplication();
+                alert("Multiplication = " + res)
+
+                break;
+
+            case 4:
+
+                var val1 = parseInt(prompt("Enter first value"))
+                var val2 = parseInt(prompt("Enter second value"))
+
+                var result = division(val1, val2)
+                alert("Division = " + result)
+
+                break;
+
+            default:
+                alert("Invalied Choice!!!!!")
+
+
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script>
+        function calculation() {
+
+            var num1 = parseInt(document.getElementById('val1').value)
+            var num2 = parseInt(document.getElementById('val2').value)
+
+            var choice = parseInt(document.getElementById('calc').value)
+
+            switch (choice) {
+                case 1:
+                    alert("Addition " + (num1 + num2))
+                    break;
+
+                case 2:
+                    alert("Subtraction " + (num1 - num2))
+                    break;
+                case 3:
+                    alert("Multiplication " + (num1 * num2))
+                    break;
+                case 4:
+                    alert("Division " + (num1 / num2))
+                    break;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <table border="2px" cellspacing="10" cellpadding="10">
+
+        <tr>
+            <td>Enter first value</td>
+            <td><input type="text" id="val1"></td>
+        </tr>
+
+        <tr>
+            <td>Enter second value</td>
+            <td><input type="text" id="val2"></td>
+        </tr>
+
+        <tr>
+            <td>Select calculation </td>
+            <td><select id="calc">
+                <option value="1">Addition</option>
+                <option value="2">Subtraction</option>
+                <option value="3">Multiplication</option>
+                <option value="4">Division</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="calculation()">Calculation</button></td>
+        </tr>
+
+    </table>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+function calculate() {
+    // alert("calculate is called")
+    var val1 = parseInt(document.getElementById('num1').value)
+    var val2 = parseInt(document.getElementById('num2').value)
+
+    var operation = document.getElementById('operation').value
+
+  
+    if(operation==="add")
+    document.getElementById('result').innerHTML=("Addition of two number is " + (val1 + val2))
+    else if(operation==="sub")
+    document.getElementById('result').innerHTML=("Subtraction of two number is " + (val1 - val2))
+    else if(operation==="multi")
+    document.getElementById('result').innerHTML=("Multiplication of two number is " + (val1 * val2))
+    else if(operation==="div")
+    document.getElementById('result').innerHTML=("Division of two number is " + (val1 / val2))
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="myScript.js">
+    </script>
+
+</head>
+
+<body>
+
+    <table border="2px">
+        <tr>
+            <td>Enter first number </td>
+            <td><input type="text" id="num1"></td>
+        </tr>
+        <tr>
+            <td>Enter second number </td>
+            <td><input type="text" id="num2"></td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <select id="operation">
+                <option value="add" > Addition</option>
+                <option value="sub" > Subraction</option>
+                <option value="multi"> Multiplication</option>
+                <option value="div" > Division</option>
+            </select>
+            </td>
+
+
+            <td><button onclick="calculate()">Calculate</button></td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <div id="result"></div>
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function calculate() {
+    // alert("calculate is called")
+    var val1 = parseInt(document.getElementById('num1').value)
+    var val2 = parseInt(document.getElementById('num2').value)
+
+    var operation = document.getElementById('operation').value
+
+  
+    if(operation==="add")
+    alert("Addition of two number is " + (val1 + val2))
+    else if(operation==="sub")
+    alert("Subtraction of two number is " + (val1 - val2))
+    else if(operation==="multi")
+    alert("Multiplication of two number is " + (val1 * val2))
+    else if(operation==="div")
+    alert("Division of two number is " + (val1 / val2))
+
+
+}
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="myScript.js">
+    </script>
+
+</head>
+
+<body>
+
+    <table border="2px">
+        <tr>
+            <td>Enter first number </td>
+            <td><input type="text" id="num1"></td>
+        </tr>
+        <tr>
+            <td>Enter second number </td>
+            <td><input type="text" id="num2"></td>
+        </tr>
+
+
+        <tr>
+            <td>
+                <select id="operation">
+                <option value="add" > Addition</option>
+                <option value="sub" > Subraction</option>
+                <option value="multi"> Multiplication</option>
+                <option value="div" > Division</option>
+            </select>
+            </td>
+
+
+            <td><button onclick="calculate()">Calculate</button></td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate() {
+          
+            var val1 = parseInt(document.getElementById('num1').value)
+            var val2 = parseInt(document.getElementById('num2').value)
+
+            alert("Addition of two number is " + (val1 + val2))
+
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <table border="2px">
+        <tr>
+            <td>Enter first number </td>
+            <td><input type="text" id="num1"></td>
+        </tr>
+        <tr>
+            <td>Enter second number </td>
+            <td><input type="text" id="num2"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center"><button onclick="calculate()">Calculate Add</button></td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate() {
+            // alert("calculate is called")
+        }
+        
+    </script>
+
+</head>
+
+<body>
+
+    <table border="2px">
+        <tr>
+            <td>Enter first number </td>
+            <td><input type="text" id="num1"></td>
+        </tr>
+
+
+        <tr>
+            <td>Enter second number </td>
+            <td><input type="text" id="num2"></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center"><button onclick="calculate()">Calculate Add</button></td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+// alert("Welcome to javascript")
+
+        // document.write("<h1>This is heading tag from javascript")
+
+        // console.log("This is message to console")
+
+        // var name = prompt("Enter your name")
+        // alert("My name is " + name)
+
+
+        // var num1 = parseInt(prompt("Enter first number"))
+        // var num2 = parseInt(prompt("Enter second number"))
+
+
+        // alert("Addition " + (num1 + num2))
+
+
+        // var result = confirm("Do you want to continue....")
+        // alert(result)
+
+        // if (result)
+        //     alert("Yes we want to continue...")
+        // else
+        //     alert("No we dont want to continue...")
+        
+        
+        
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // alert("Welcome to javascript")
+
+        // document.write("<h1>This is heading tag from javascript")
+
+        // console.log("This is message to console")
+
+        // var name = prompt("Enter your name")
+        // alert("My name is " + name)
+
+
+        var num1 = parseInt(prompt("Enter first number"))
+        var num2 = parseInt(prompt("Enter second number"))
+
+        alert("Addition " + (num1 + num2))
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<ul contenteditable="true">
+<li> Break mechanical cab driver</li>
+<li> Drive to abandoned factory
+<li> Watch the video </li>
+</ul>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        mark {
+            background-color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="myStyle.css" title="style1">
+</head>
+
+<body>
+
+    <p>This is <mark>important</mark> paragraph</p>
+
+    <form>
+
+        Enter your email id <input type="email"><br/>
+        <input type="submit" value="Submit"> 
+
+    </form>
+
+
+    <fieldset>
+        <legend>Input types in HTML 5</legend>
+        What is your favorite color <input type="color"> <br/> Enter your date of birth <input type="date"><br/> Enter your birth month <input type="month"><br/> Enter your birth week <input type="week"><br/> Enter your birth date and time <input type="datetime-local"><br/>
+
+
+
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Ordered List Example</legend>
+        <OL TYPE="1">
+            <LI> Item one </LI>
+            <LI> Item two </LI>
+            <OL TYPE="I">
+                <LI> Sublist item one </LI>
+                <LI> Sublist item two </LI>
+                <OL TYPE="i">
+                    <LI> Sub-sublist item one </LI>
+                    <LI> Sub-sublist item two </LI>
+                </OL>
+            </OL>
+        </OL>
+    </fieldset>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<fieldset>
+        <legend>Input types in HTML 5</legend>
+        What is your favorite color <input type="color"> <br/> 
+        Enter your date of birth <input type="date"><br/>
+         Enter your birth month <input type="month"><br/> 
+         Enter your birth week <input type="week"><br/>
+         Enter your birth date and time <input type="datetime-local"><br/>
+
+    </fieldset>
+    
+    
+    
+    
+
+
+
+
+<H1>Logical Character Styles</H1>
+<EM>Emphasized</EM><BR>
+<STRONG>Strongly Emphasized</STRONG><BR>
+<CODE>Code</CODE><BR>
+<SAMP>Sample Output</SAMP><BR>
+<KBD>Keyboard Text</KBD><BR>
+<DFN>Definition</DFN><BR>
+<VAR>Variable</VAR><BR>
+<CITE>Citation</CITE><BR>
+<EM><CODE>Emphasized Code</CODE></EM><BR>
+<FONT COLOR="GRAY"><CITE>Gray Citation</CITE></FONT><BR>
+<ACRONYM TITLE="Java Development Kit">JDK Acronym</ACRONYM>
+
+
+
+
+
+
+
+
+
+
+<H1>Physical Character Styles</H1>
+<B>Bold</B><BR>
+<I>Italic</I><BR>
+<TT>Teletype (Monospaced)</TT><BR>
+<U>Underlined</U><BR>
+Subscripts: f<SUB>0</SUB> + f<SUB>1</SUB><BR>
+Superscripts: x<SUP>2</SUP> + y<SUP>2</SUP><BR>
+<SMALL>Smaller</SMALL><BR>
+<BIG>Bigger</BIG><BR>
+<STRIKE>Strike Through</STRIKE><BR>
+<B><I>Bold Italic</I></B><BR>
+<BIG><TT>Big Monospaced</TT></BIG><BR>
+<SMALL><I>Small Italic</I></SMALL><BR>
+<FONT COLOR="GRAY">Gray</FONT><BR>
+<DEL>Delete</DEL><BR>
+<INS>Insert</INS><BR>
+
+
+
+
+
+
+
+
+
+
+
+
+<UL TYPE="disc">
+   <LI> One </LI>
+   <LI> Two </LI>
+   <UL TYPE="circle">
+      <LI> Three </LI>
+      <LI> Four </LI>
+      <UL TYPE="square">
+         <LI> Five </LI>
+         <LI> Six </LI>
+      </UL>
+   </UL>
+</UL>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <link rel="stylesheet" href="myStyle.css" title="style1">
+    <link rel="alternate stylesheet" href="myStyle2.css" title="style2">
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>Ordered List Example</legend>
+        <OL TYPE="1">
+            <LI> Item one </LI>
+            <LI> Item two </LI>
+            <OL TYPE="I">
+                <LI> Sublist item one </LI>
+                <LI> Sublist item two </LI>
+                <OL TYPE="i">
+                    <LI> Sub-sublist item one </LI>
+                    <LI> Sub-sublist item two </LI>
+                </OL>
+            </OL>
+        </OL>
+    </fieldset>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        fieldset {
+            background-color: rgb(168 215 193);
+            height: 200px;
+            width: 300px;
+            border-radius: 0px 30px 90px;
+        }
+        
+        legend {
+            color: rgb(187, 18, 213);
+            border: 2px;
+            height: 20px;
+            border-style: solid;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>Ordered List Example</legend>
+        <OL TYPE="1">
+            <LI> Item one </LI>
+            <LI> Item two </LI>
+            <OL TYPE="I">
+                <LI> Sublist item one </LI>
+                <LI> Sublist item two </LI>
+                <OL TYPE="i">
+                    <LI> Sub-sublist item one </LI>
+                    <LI> Sub-sublist item two </LI>
+                </OL>
+            </OL>
+        </OL>
+    </fieldset>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+<OL TYPE="1">
+   <LI> Item one </LI>
+   <LI> Item two </LI>
+   <OL TYPE="I" >
+      <LI> Sublist item one </LI>
+      <LI> Sublist item two </LI>
+      <OL TYPE="i">
+         <LI> Sub-sublist item one </LI>
+         <LI> Sub-sublist item two </LI>
+      </OL>
+   </OL>
+</OL>
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Form Tags</legend>
+
+        <table border="2px" cellspacing="0" cellpadding="10" style="background-color:rgb(231, 247, 11)">
+            <tr>
+                <td>Enter your first name</td>
+                <td colspan="5"> <input type="text" name="name" id="txt1"></td>
+            </tr>
+
+            <tr>
+                <td>Enter password</td>
+                <td colspan="5"><input type="password" name="name" id="txt2"> </td>
+            </tr>
+            <tr colspan="5">
+                <td>Enter Your gender</td>
+                <td colspan="3"><input type="radio" name="gender">Male </td>
+                <td colspan="2"><input type="radio" name="gender">FeMale </td>
+            </tr>
+
+            <tr>
+                <td>Enter your favorite technologies</td>
+                <td><input type="checkbox" name="">C++</td>
+                <td><input type="checkbox" name="">Java</td>
+                <td><input type="checkbox" name="">NODE JS</td>
+                <td><input type="checkbox" name="">Angular</td>
+                <td><input type="checkbox" name="">React</td>
+            </tr>
+
+            <tr>
+                <td>Enter your date of birth</td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td>
+                    Tell me about yourself
+                </td>
+                <td colspan="4">
+                    <textarea col="10" rows="10"></textarea>
+                </td>
+            </tr>
+
+        </table>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Heading Tags </legend>
+        <h1>Hello HTML welcome to html world</h1>
+        <h2>Hello HTML welcome to html world</h2>
+        <h3>Hello HTML welcome to html world</h3>
+        <h4>Hello HTML welcome to html world</h4>
+        <h5>Hello HTML welcome to html world</h5>
+        <h6>Hello HTML welcome to html world</h6>
+    </fieldset>
+    <fieldset>
+        <legend>TAble tags </legend>
+        <table border="2px" cellspacing="0" cellpadding="10" style="background-color:rgb(231, 247, 11)">
+            <tr>
+                <td>Enter your name</td>
+                <td><input type="text" name="name" id="txtName"></td>
+            </tr>
+            <tr>
+                <td>Enter your dob</td>
+                <td><input type="date" name="name" id="txtDob"></td>
+            </tr>
+            <tr>
+                <td>Enter your salary</td>
+                <td><input type="text" name="name" id="txtsalary"></td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+
+</html>

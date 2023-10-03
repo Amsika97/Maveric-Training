@@ -1,0 +1,43 @@
+package Streams;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamDemo {
+
+	public static void main(String[] args) {
+		// 1-10 --> even num list -->1. sort, 2. avg, 3.sum
+		
+		List<Integer> list = Arrays.asList(10,8,3,4,7,1,9,2,5,6);
+		
+		List<Integer> EvenNo = list.stream().filter(n -> n%2 == 0).collect(Collectors.toList());
+		System.out.println("Even Number" + EvenNo);
+		
+		List<Integer> SortEvnNo = EvenNo.stream().sorted().collect(Collectors.toList());
+		System.out.println("Sorted Even No" + SortEvnNo);
+		
+		double AvgNo = EvenNo.stream().mapToDouble(num -> num).average().getAsDouble();
+		System.out.println("Average of even no" + AvgNo);
+		
+		double SumOfEvnNo = EvenNo.stream().mapToInt(num -> num).sum();
+		System.out.println(SumOfEvnNo);
+		
+		System.out.println("---------------------------------------------------------------");
+		
+		
+		// 2. names --> 1.print names with R , 2.uppercase 3. sort
+		
+		
+		List<String> Names = Arrays.asList("Rohit", "Rajesh", "Ram", "Amar","Umesh","Pratik");
+		
+		List<String> NamWidR = Names.stream().filter(name -> name.startsWith("R")).collect(Collectors.toList());
+		System.out.println(NamWidR);
+		
+		Names.stream().map(String::toUpperCase).forEach( n -> System.out.print(n + " "));
+		System.out.println();
+		NamWidR.stream().sorted().forEach(n -> System.out.print(n + " "));
+		
+	}
+
+}

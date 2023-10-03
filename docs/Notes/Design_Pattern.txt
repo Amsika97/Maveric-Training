@@ -1,0 +1,520 @@
+A design patterns are well-proved solution for solving the specific problem/task.
+Now, a question will be arising in your mind what kind of specific problem? Let me explain by taking an example.
+Problem Given:
+Suppose you want to create a class for which only a single instance (or object) should be created and that single object can be used by all other classes.
+Solution:
+Singleton design pattern is the best solution of above specific problem. So, every design pattern has some specification or set of rules for solving the problems. What are those specifications, you will see later in the types of design patterns.
+
+But remember one-thing, design patterns are programming language independent strategies for solving the common object-oriented design problems. That means, a design pattern represents an idea, not a particular implementation.
+By using the design patterns you can make your code more flexible, reusable and maintainable. It is the most important part because java internally follows design patterns.
+To become a professional software developer, you must know at least some popular solutions (i.e. design patterns) to the coding problems.
+
+Abstract Factory Pattern says that just define an interface or abstract class for creating families of related (or dependent) objects but without specifying their concrete sub-classes.That means Abstract Factory lets a class returns a factory of classes. So, this is the reason that Abstract Factory Pattern is one level higher than the Factory Pattern.
+An Abstract Factory Pattern is also known as Kit.
+
+Advantage of Abstract Factory Pattern
+Abstract Factory Pattern isolates the client code from concrete (implementation) classes.
+It eases the exchanging of object families.
+It promotes consistency among objects.
+Usage of Abstract Factory Pattern
+When the system needs to be independent of how its object are created, composed, and represented.
+When the family of related objects has to be used together, then this constraint needs to be enforced.
+When you want to provide a library of objects that does not show implementations and only reveals interfaces.
+When the system needs to be configured with one of a multiple family of objects.
+
+
+
+
+
+
+Example of Abstract Factory Pattern
+Here, we are calculating the loan payment for different banks like HDFC, ICICI, SBI etc.
+Step 1: Create a Bank interface
+1.	import java.io.*;     
+2.	interface Bank{  
+3.	        String getBankName();  
+4.	}  
+Step 2: Create concrete classes that implement the Bank interface.
+1.	class HDFC implements Bank{  
+2.	         private final String BNAME;  
+3.	         public HDFC(){  
+4.	                BNAME="HDFC BANK";  
+5.	        }  
+6.	        public String getBankName() {  
+7.	                  return BNAME;  
+8.	        }  
+9.	}  
+1.	class ICICI implements Bank{  
+2.	       private final String BNAME;  
+3.	       ICICI(){  
+4.	                BNAME="ICICI BANK";  
+5.	        }  
+6.	        public String getBankName() {  
+7.	                  return BNAME;  
+8.	       }  
+9.	}  
+1.	class SBI implements Bank{  
+2.	      private final String BNAME;  
+3.	      public SBI(){  
+4.	                BNAME="SBI BANK";  
+5.	        }  
+6.	       public String getBankName(){  
+7.	                  return BNAME;  
+8.	       }  
+9.	}  
+Step 3: Create the Loan abstract class.
+1.	abstract class Loan{  
+2.	   protected double rate;  
+3.	   abstract void getInterestRate(double rate);  
+4.	   public void calculateLoanPayment(double loanamount, int years)  
+5.	   {  
+6.	        /* 
+7.	              to calculate the monthly loan payment i.e. EMI   
+8.	                            
+9.	              rate=annual interest rate/12*100; 
+10.	              n=number of monthly installments;            
+11.	              1year=12 months. 
+12.	              so, n=years*12; 
+13.	 
+14.	            */  
+15.	                
+16.	         double EMI;  
+17.	         int n;  
+18.	  
+19.	         n=years*12;  
+20.	         rate=rate/1200;  
+21.	         EMI=((rate*Math.pow((1+rate),n))/((Math.pow((1+rate),n))-1))*loanamount;  
+22.	  
+23.	System.out.println("your monthly EMI is "+ EMI +" for the amount"+loanamount+" you have borrowed");     
+24.	 }  
+25.	}// end of the Loan abstract class.  
+Step 4: Create concrete classes that extend the Loan abstract class..
+1.	class HomeLoan extends Loan{  
+2.	     public void getInterestRate(double r){  
+3.	         rate=r;  
+4.	    }  
+5.	}//End of the HomeLoan class.  
+1.	class BussinessLoan extends Loan{  
+2.	    public void getInterestRate(double r){  
+3.	          rate=r;  
+4.	     }  
+5.	  
+6.	}//End of the BusssinessLoan class.  
+1.	class EducationLoan extends Loan{  
+2.	     public void getInterestRate(double r){  
+3.	       rate=r;  
+4.	 }  
+5.	}//End of the EducationLoan class.  
+Step 5: Create an abstract class (i.e AbstractFactory) to get the factories for Bank and Loan Objects.
+1.	abstract class AbstractFactory{  
+2.	  public abstract Bank getBank(String bank);  
+3.	  public abstract Loan getLoan(String loan);  
+4.	}  
+Step 6: Create the factory classes that inherit AbstractFactory class to generate the object of concrete class based on given information.
+1.	class BankFactory extends AbstractFactory{  
+2.	   public Bank getBank(String bank){  
+3.	      if(bank == null){  
+4.	         return null;  
+5.	      }  
+6.	      if(bank.equalsIgnoreCase("HDFC")){  
+7.	         return new HDFC();  
+8.	      } else if(bank.equalsIgnoreCase("ICICI")){  
+9.	         return new ICICI();  
+10.	      } else if(bank.equalsIgnoreCase("SBI")){  
+11.	         return new SBI();  
+12.	      }  
+13.	      return null;  
+14.	   }  
+15.	  public Loan getLoan(String loan) {  
+16.	      return null;  
+17.	   }  
+18.	}//End of the BankFactory class.  
+1.	class LoanFactory extends AbstractFactory{  
+2.	           public Bank getBank(String bank){  
+3.	                return null;  
+4.	          }  
+5.	        
+6.	     public Loan getLoan(String loan){  
+7.	      if(loan == null){  
+8.	         return null;  
+9.	      }  
+10.	      if(loan.equalsIgnoreCase("Home")){  
+11.	         return new HomeLoan();  
+12.	      } else if(loan.equalsIgnoreCase("Business")){  
+13.	         return new BussinessLoan();  
+14.	      } else if(loan.equalsIgnoreCase("Education")){  
+15.	         return new EducationLoan();  
+16.	      }  
+17.	      return null;  
+18.	   }  
+19.	     
+20.	}  
+Step 7: Create a FactoryCreator class to get the factories by passing an information such as Bank or Loan.
+1.	class FactoryCreator {  
+2.	     public static AbstractFactory getFactory(String choice){  
+3.	      if(choice.equalsIgnoreCase("Bank")){  
+4.	         return new BankFactory();  
+5.	      } else if(choice.equalsIgnoreCase("Loan")){  
+6.	         return new LoanFactory();  
+7.	      }  
+8.	      return null;  
+9.	   }  
+10.	}//End of the FactoryCreator.  
+Step 8: Use the FactoryCreator to get AbstractFactory in order to get factories of concrete classes by passing an information such as type.
+1.	import java.io.*;  
+2.	class AbstractFactoryPatternExample {  
+3.	      public static void main(String args[])throws IOException {  
+4.	       
+5.	      BufferedReader br=new BufferedReader(new InputStreamReader(System.in));  
+6.	  
+7.	      System.out.print("Enter the name of Bank from where you want to take loan amount: ");  
+8.	      String bankName=br.readLine();  
+9.	  
+10.	System.out.print("\n");  
+11.	System.out.print("Enter the type of loan e.g. home loan or business loan or education loan : ");  
+12.	  
+13.	String loanName=br.readLine();  
+14.	AbstractFactory bankFactory = FactoryCreator.getFactory("Bank");  
+15.	Bank b=bankFactory.getBank(bankName);  
+16.	  
+17.	System.out.print("\n");  
+18.	System.out.print("Enter the interest rate for "+b.getBankName()+ ": ");  
+19.	  
+20.	double rate=Double.parseDouble(br.readLine());  
+21.	System.out.print("\n");  
+22.	System.out.print("Enter the loan amount you want to take: ");  
+23.	  
+24.	double loanAmount=Double.parseDouble(br.readLine());  
+25.	System.out.print("\n");  
+26.	System.out.print("Enter the number of years to pay your entire loan amount: ");  
+27.	int years=Integer.parseInt(br.readLine());  
+28.	  
+29.	System.out.print("\n");  
+30.	System.out.println("you are taking the loan from "+ b.getBankName());  
+31.	  
+32.	AbstractFactory loanFactory = FactoryCreator.getFactory("Loan");  
+33.	           Loan l=loanFactory.getLoan(loanName);  
+34.	           l.getInterestRate(rate);  
+35.	           l.calculateLoanPayment(loanAmount,years);  
+36.	  }  
+37.	}//End of the  AbstractFactoryPatternExample 
+
+
+
+
+
+Singleton Pattern says that just"define a class that has only one instance and provides a global point of access to it".
+In other words, a class must ensure that only single instance should be created and single object can be used by all other classes.
+There are two forms of singleton design pattern
+Early Instantiation: creation of instance at load time.
+Lazy Instantiation: creation of instance when required.
+
+To create the singleton class, we need to have static member of class, private constructor and static factory method.
+
+Static member: It gets memory only once because of static, itcontains the instance of the Singleton class.
+Private constructor: It will prevent to instantiate the Singleton class from outside the class.
+Static factory method: This provides the global point of access to the Singleton object and returns the instance to the caller.
+Understanding early Instantiation of Singleton Pattern
+In such case, we create the instance of the class at the time of declaring the static data member, so instance of the class is created at the time of classloadin
+
+
+
+class A{  
+ private static A obj=new A();//Early, instance will be created at load time  
+ private A(){}  
+   
+ public static A getA(){  
+  return obj;  
+ }  
+  
+ public void doSomething(){  
+ //write your code  
+ }  
+} 
+
+
+
+Assumption: you have created a table userdata that has three fields uid, uname and upassword in mysql database. Database name is ashwinirajput, username is root, password is ashwini.
+File: JDBCSingleton.java
+1.	import java.io.BufferedReader;  
+2.	import java.io.IOException;  
+3.	import java.io.InputStreamReader;  
+4.	import java.sql.Connection;  
+5.	import java.sql.DriverManager;  
+6.	import java.sql.PreparedStatement;  
+7.	import java.sql.ResultSet;  
+8.	import java.sql.SQLException;  
+9.	  
+10.	class JDBCSingleton {  
+11.	     //Step 1  
+12.	      // create a JDBCSingleton class.  
+13.	     //static member holds only one instance of the JDBCSingleton class.  
+14.	             
+15.	         private static JDBCSingleton jdbc;  
+16.	           
+17.	     //JDBCSingleton prevents the instantiation from any other class.  
+18.	       private JDBCSingleton() {  }  
+19.	        
+20.	    //Now we are providing gloabal point of access.  
+21.	         public static JDBCSingleton getInstance() {    
+22.	                                     if (jdbc==null)  
+23.	                                   {  
+24.	                                            jdbc=new  JDBCSingleton();  
+25.	                                   }  
+26.	                         return jdbc;  
+27.	             }  
+28.	            
+29.	   // to get the connection from methods like insert, view etc.   
+30.	          private static Connection getConnection()throws ClassNotFoundException, SQLException  
+31.	          {  
+32.	                
+33.	              Connection con=null;  
+34.	              Class.forName("com.mysql.jdbc.Driver");  
+35.	              con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ashwanirajput", "root", "ashwani");  
+36.	              return con;  
+37.	                
+38.	          }  
+39.	            
+40.	 //to insert the record into the database   
+41.	          public int insert(String name, String pass) throws SQLException  
+42.	          {  
+43.	              Connection c=null;  
+44.	                
+45.	              PreparedStatement ps=null;  
+46.	                
+47.	              int recordCounter=0;  
+48.	                
+49.	              try {  
+50.	                    
+51.	                      c=this.getConnection();  
+52.	                      ps=c.prepareStatement("insert into userdata(uname,upassword)values(?,?)");  
+53.	                      ps.setString(1, name);  
+54.	                      ps.setString(2, pass);  
+55.	                      recordCounter=ps.executeUpdate();  
+56.	                        
+57.	              } catch (Exception e) { e.printStackTrace(); } finally{  
+58.	                    if (ps!=null){  
+59.	                      ps.close();  
+60.	                  }if(c!=null){  
+61.	                      c.close();  
+62.	                  }   
+63.	              }  
+64.	             return recordCounter;  
+65.	          }  
+66.	  
+67.	//to view the data from the database        
+68.	      public  void view(String name) throws SQLException  
+69.	      {  
+70.	                Connection con = null;  
+71.	        PreparedStatement ps = null;  
+72.	        ResultSet rs = null;  
+73.	                  
+74.	                try {  
+75.	                      
+76.	                        con=this.getConnection();  
+77.	                        ps=con.prepareStatement("select * from userdata where uname=?");  
+78.	                        ps.setString(1, name);  
+79.	                        rs=ps.executeQuery();  
+80.	                        while (rs.next()) {  
+81.	                                  System.out.println("Name= "+rs.getString(2)+"\t"+"Paasword= "+rs.getString(3));      
+82.	                         
+83.	                        }  
+84.	                
+85.	          } catch (Exception e) { System.out.println(e);}  
+86.	          finally{  
+87.	                    if(rs!=null){  
+88.	                        rs.close();  
+89.	                    }if (ps!=null){  
+90.	                      ps.close();  
+91.	                  }if(con!=null){  
+92.	                      con.close();  
+93.	                  }   
+94.	                }  
+95.	      }  
+96.	        
+97.	     // to update the password for the given username  
+98.	      public int update(String name, String password) throws SQLException  {  
+99.	              Connection c=null;  
+100.	              PreparedStatement ps=null;  
+101.	                
+102.	              int recordCounter=0;  
+103.	              try {  
+104.	                      c=this.getConnection();  
+105.	                      ps=c.prepareStatement(" update userdata set upassword=? where uname='"+name+"' ");  
+106.	                      ps.setString(1, password);  
+107.	                      recordCounter=ps.executeUpdate();  
+108.	              } catch (Exception e) {  e.printStackTrace(); } finally{  
+109.	                      
+110.	                  if (ps!=null){  
+111.	                      ps.close();  
+112.	                  }if(c!=null){  
+113.	                      c.close();  
+114.	                  }   
+115.	               }  
+116.	             return recordCounter;  
+117.	          }  
+118.	            
+119.	// to delete the data from the database   
+120.	         public int delete(int userid) throws SQLException{  
+121.	              Connection c=null;  
+122.	              PreparedStatement ps=null;  
+123.	              int recordCounter=0;  
+124.	              try {  
+125.	                       c=this.getConnection();  
+126.	                      ps=c.prepareStatement(" delete from userdata where uid='"+userid+"' ");  
+127.	                      recordCounter=ps.executeUpdate();  
+128.	              } catch (Exception e) { e.printStackTrace(); }   
+129.	              finally{  
+130.	              if (ps!=null){  
+131.	                      ps.close();  
+132.	             }if(c!=null){  
+133.	                      c.close();  
+134.	              }   
+135.	           }  
+136.	             return recordCounter;  
+137.	          }  
+138.	 }// End of JDBCSingleton class  
+File: JDBCSingletonDemo.java
+1.	import java.io.BufferedReader;  
+2.	import java.io.IOException;  
+3.	import java.io.InputStreamReader;  
+4.	import java.sql.Connection;  
+5.	import java.sql.DriverManager;  
+6.	import java.sql.PreparedStatement;  
+7.	import java.sql.ResultSet;  
+8.	import java.sql.SQLException;  
+9.	class JDBCSingletonDemo{  
+10.	    static int count=1;  
+11.	    static int  choice;  
+12.	    public static void main(String[] args) throws IOException {  
+13.	          
+14.	        JDBCSingleton jdbc= JDBCSingleton.getInstance();  
+15.	          
+16.	          
+17.	        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));  
+18.	   do{   
+19.	        System.out.println("DATABASE OPERATIONS");  
+20.	        System.out.println(" --------------------- ");  
+21.	        System.out.println(" 1. Insertion ");  
+22.	        System.out.println(" 2. View      ");  
+23.	        System.out.println(" 3. Delete    ");  
+24.	        System.out.println(" 4. Update    ");  
+25.	        System.out.println(" 5. Exit      ");  
+26.	          
+27.	        System.out.print("\n");  
+28.	        System.out.print("Please enter the choice what you want to perform in the database: ");  
+29.	          
+30.	        choice=Integer.parseInt(br.readLine());  
+31.	        switch(choice) {  
+32.	              
+33.	           case 1:{  
+34.	                    System.out.print("Enter the username you want to insert data into the database: ");  
+35.	                    String username=br.readLine();  
+36.	                    System.out.print("Enter the password you want to insert data into the database: ");  
+37.	                    String password=br.readLine();  
+38.	                      
+39.	                    try {  
+40.	                            int i= jdbc.insert(username, password);  
+41.	                            if (i>0) {  
+42.	                            System.out.println((count++) + " Data has been inserted successfully");  
+43.	                            }else{  
+44.	                                System.out.println("Data has not been inserted ");      
+45.	                            }  
+46.	                          
+47.	                        } catch (Exception e) {  
+48.	                          System.out.println(e);  
+49.	                        }  
+50.	                      
+51.	                     System.out.println("Press Enter key to continue...");  
+52.	                     System.in.read();  
+53.	                       
+54.	                   }//End of case 1  
+55.	                   break;  
+56.	            case 2:{  
+57.	                    System.out.print("Enter the username : ");  
+58.	                    String username=br.readLine();  
+59.	               
+60.	                    try  {  
+61.	                            jdbc.view(username);  
+62.	                         } catch (Exception e) {  
+63.	                          System.out.println(e);  
+64.	                        }  
+65.	                     System.out.println("Press Enter key to continue...");  
+66.	                     System.in.read();  
+67.	                       
+68.	                   }//End of case 2  
+69.	                  break;  
+70.	             case 3:{  
+71.	                     System.out.print("Enter the userid,  you want to delete: ");  
+72.	                     int userid=Integer.parseInt(br.readLine());  
+73.	             
+74.	                     try {  
+75.	                            int i= jdbc.delete(userid);  
+76.	                            if (i>0) {  
+77.	                            System.out.println((count++) + " Data has been deleted successfully");  
+78.	                            }else{  
+79.	                                System.out.println("Data has not been deleted");      
+80.	                            }  
+81.	                          
+82.	                         } catch (Exception e) {  
+83.	                          System.out.println(e);  
+84.	                         }  
+85.	                     System.out.println("Press Enter key to continue...");  
+86.	                     System.in.read();  
+87.	                       
+88.	                    }//End of case 3  
+89.	                   break;  
+90.	             case 4:{  
+91.	                    System.out.print("Enter the username,  you want to update: ");  
+92.	                    String username=br.readLine();  
+93.	                    System.out.print("Enter the new password ");  
+94.	                    String password=br.readLine();  
+95.	                      
+96.	                    try {  
+97.	                            int i= jdbc.update(username, password);  
+98.	                            if (i>0) {  
+99.	                            System.out.println((count++) + " Data has been updated successfully");  
+100.	                            }  
+101.	                          
+102.	                        } catch (Exception e) {  
+103.	                          System.out.println(e);  
+104.	                        }  
+105.	                     System.out.println("Press Enter key to continue...");  
+106.	                     System.in.read();  
+107.	                      
+108.	                   }// end of case 4  
+109.	                 break;  
+110.	                   
+111.	             default:  
+112.	                     return;  
+113.	        }  
+114.	          
+115.	       } while (choice!=4);   
+116.	   }  
+117.	}  
+
+
+
+
+
+Prototype Pattern says that cloning of an existing object instead of creating new one and can also be customized as per the requirement.
+This pattern should be followed, if the cost of creating a new object is expensive and resource intensive.
+Advantage of Prototype Pattern
+The main advantages of prototype pattern are as follows:
+It reduces the need of sub-classing.
+It hides complexities of creating objects.
+The clients can get new objects without knowing which type of object it will be.
+It lets you add or remove objects at runtime.
+Usage of Prototype Pattern
+When the classes are instantiated at runtime.
+When the cost of creating an object is expensive or complicated.
+When you want to keep the number of classes in an application minimum.
+When the client application needs to be unaware of object creation and representation.
+
+Builder Pattern says that "construct a complex object from simple objects using step-by-step approach"
+It is mostly used when object can't be created in single step like in the de-serialization of a complex object.
+Advantage of Builder Design Pattern
+The main advantages of Builder Pattern are as follows:
+It provides clear separation between the construction and representation of an object.
+It provides better control over construction process.
+It supports to change the internal representation of objects.

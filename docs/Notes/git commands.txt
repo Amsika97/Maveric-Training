@@ -1,0 +1,18 @@
+1.to generate key
+ ssh-keygen -t rsa -b 4096 -C "amsika97@gmail.com"
+2. then do follwoing command
+ ssh-agent -s
+3. cloning
+git clone git@github.com:Amsika97/Practicegit.git
+4. branch
+a.> to know local branch
+git branch
+b.> to know remote branch
+git branch -r
+5. to create a branch
+git branch branchname
+6.to move from one branch to another branch
+git checkout classA
+7.git status
+8.git commit -m "modified the file trial.txt"
+9.git push -u origin classA
