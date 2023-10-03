@@ -1,0 +1,18 @@
+server:
+   port:
+      2030
+      
+spring:
+   application:
+      name:
+         This name is from yml file
+
+management: 
+           endpoint:
+                   web:
+
+                          explosuer:
+
+                                 include:"*"
+      
+    

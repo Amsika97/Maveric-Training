@@ -1,0 +1,12 @@
+package com.factory.pkg;
+
+public class FactoryCreator {
+	public static AbstractFactory getFactory(String choice){  
+		3.	      if(choice.equalsIgnoreCase("Bank")){  
+		4.	         return new BankFactory();  
+		5.	      } else if(choice.equalsIgnoreCase("Loan")){  
+		6.	         return new LoanFactory();  
+		7.	      }  
+		8.	      return null;  
+		9.	   }  
+}

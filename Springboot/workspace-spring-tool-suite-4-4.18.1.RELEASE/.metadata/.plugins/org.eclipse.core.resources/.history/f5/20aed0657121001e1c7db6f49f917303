@@ -1,0 +1,5 @@
+package com.factory.pkg;
+import java.io.*;     
+2.	interface Bank{  
+3.	        String getBankName();  
+4.	}  

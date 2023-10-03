@@ -1,0 +1,8 @@
+package com.training.org;
+
+public interface Prototype {
+ public getclone()
+ {
+	 return Prototype;
+ }
+}

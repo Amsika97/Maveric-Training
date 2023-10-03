@@ -1,0 +1,11 @@
+package com.training.org;
+
+public abstract class InterestRate {
+
+	protected double Interest;
+	abstract void getInterest();
+	public void calculateEMI(double Amount, int years) {
+	System.out.println(units*rate);
+	}
+
+}

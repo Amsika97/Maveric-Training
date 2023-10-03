@@ -1,0 +1,24 @@
+package com.training.org.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.training.org.entity.Students;
+
+@Controller
+public class StudentsController {
+	 @GetMapping("/signup")
+	    public String showSignUpForm(Students students) {
+	        return "add-student";
+	    }
+	    
+	    @PostMapping("/adduser")
+	    public String addUser(@Valid User user, BindingResult result, Model model) {
+	        if (result.hasErrors()) {
+	            return "add-student";
+	        }
+	        
+	        userRepository.save(user);
+	        return "redirect:/index";
+	    }
+}

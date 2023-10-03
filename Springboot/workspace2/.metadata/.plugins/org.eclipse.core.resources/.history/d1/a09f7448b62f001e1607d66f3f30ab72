@@ -1,0 +1,18 @@
+package com.training.org;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.training.org.dao.UserRepository;
+
+@SpringBootApplication
+public class BootJpaApplicationStandaloneApplication {
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext run = SpringApplication.run(BootJpaApplicationStandaloneApplication.class, args);
+		//ApplicationContext context= SpringApplication.run(BootJpaApplicationStandaloneApplication.class, args);
+        UserRepository use = run.getBean(UserRepository.class);	
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.training.org.service;
+
+public class UserDetailServiceImpl {
+
+}

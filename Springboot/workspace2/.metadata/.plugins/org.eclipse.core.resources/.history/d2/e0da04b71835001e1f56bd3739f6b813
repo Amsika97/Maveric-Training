@@ -1,0 +1,10 @@
+package com.training.org.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import com.training.org.entity.Students;
+
+@Repository
+public interface StudentRepository extends CrudRepository<Students, String>{
+
+}

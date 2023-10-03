@@ -1,0 +1,5 @@
+package com.factory.pkg;
+
+public class AbstractFactoryPatternExample {
+
+}

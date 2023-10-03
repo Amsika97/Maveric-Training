@@ -1,0 +1,5 @@
+package com.training.org.entity.web;
+
+public class UserController {
+
+}

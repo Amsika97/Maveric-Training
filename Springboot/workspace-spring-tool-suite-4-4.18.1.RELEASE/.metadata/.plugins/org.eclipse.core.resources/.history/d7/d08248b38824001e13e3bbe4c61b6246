@@ -1,0 +1,12 @@
+package com.training.org;
+
+public class Room {
+	private double length;
+	private double width;
+	private double height;
+	public Room() {
+		System.out.println();
+	}
+	
+
+}

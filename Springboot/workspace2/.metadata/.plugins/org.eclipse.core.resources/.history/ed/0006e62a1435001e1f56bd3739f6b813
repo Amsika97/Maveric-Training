@@ -1,0 +1,5 @@
+package com.training.org.repository;
+
+public interface StudentRepository {
+
+}

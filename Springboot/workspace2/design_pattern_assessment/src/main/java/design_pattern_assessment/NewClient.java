@@ -1,0 +1,21 @@
+package design_pattern_assessment;
+
+import java.util.List;
+
+public class NewClient {
+	private INewProductService service;
+    public NewClient(INewProductService service){
+        this.service=service;
+    }
+
+    public void displayAllProducts(){
+        List<ProductDetails> products= service.fetchAllProducts();
+        products.stream().forEach(System.out::println);
+    }
+
+    public void displayProductById(long id){
+        ProductDetails product=service.getProductById(id);
+        System.out.println(product);
+    }
+
+}

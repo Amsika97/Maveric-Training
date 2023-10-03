@@ -1,0 +1,5 @@
+package com.training.org.entity;
+
+public interface UserRepository {
+
+}

@@ -1,0 +1,14 @@
+package com.training.org;
+
+public class EmployeeRecord implements Prototype {
+	int id;
+	String name, designation, address;
+	double salary;
+	@Override
+	public void getclone() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+}

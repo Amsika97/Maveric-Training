@@ -1,0 +1,300 @@
+2023-07-31T10:51:45.392+05:30  INFO 15740 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 15740 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T10:51:45.423+05:30  INFO 15740 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T10:51:46.164+05:30  INFO 15740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T10:51:46.169+05:30  INFO 15740 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T10:51:46.169+05:30  INFO 15740 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T10:51:46.219+05:30  INFO 15740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T10:51:46.220+05:30  INFO 15740 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 704 ms
+2023-07-31T10:51:46.363+05:30  INFO 15740 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T10:51:46.386+05:30  INFO 15740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T10:51:46.395+05:30  INFO 15740 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 1.166 seconds (process running for 80.171)
+2023-07-31T10:51:46.399+05:30  INFO 15740 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-31T10:51:53.933+05:30  INFO 15740 --- [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T10:51:53.948+05:30  INFO 15740 --- [RMI TCP Connection(12)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T10:52:05.363+05:30  INFO 5572 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 5572 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T10:52:05.367+05:30  INFO 5572 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T10:52:05.461+05:30  INFO 5572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T10:52:05.462+05:30  INFO 5572 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T10:52:06.917+05:30  INFO 5572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T10:52:06.933+05:30  INFO 5572 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T10:52:06.934+05:30  INFO 5572 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T10:52:07.023+05:30  INFO 5572 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T10:52:07.024+05:30  INFO 5572 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1562 ms
+2023-07-31T10:52:07.571+05:30  INFO 5572 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T10:52:07.623+05:30  INFO 5572 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T10:52:07.639+05:30  INFO 5572 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 3.076 seconds (process running for 4.564)
+2023-07-31T11:16:03.942+05:30  INFO 10652 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 10652 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T11:16:03.947+05:30  INFO 10652 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T11:16:04.031+05:30  INFO 10652 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T11:16:04.031+05:30  INFO 10652 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T11:16:05.094+05:30  INFO 10652 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T11:16:05.111+05:30  INFO 10652 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T11:16:05.112+05:30  INFO 10652 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T11:16:05.214+05:30  INFO 10652 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T11:16:05.214+05:30  INFO 10652 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1183 ms
+2023-07-31T11:16:05.661+05:30  WARN 10652 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-07-31T11:16:05.681+05:30  WARN 10652 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-07-31T11:16:05.686+05:30  INFO 10652 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T11:16:05.707+05:30  INFO 10652 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-07-31T11:16:05.735+05:30 ERROR 10652 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-07-31T11:16:10.246+05:30  INFO 5572 --- [RMI TCP Connection(33)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T11:16:10.375+05:30  INFO 5572 --- [RMI TCP Connection(33)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T11:16:26.125+05:30  INFO 20168 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 20168 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T11:16:26.128+05:30  INFO 20168 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T11:16:26.195+05:30  INFO 20168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T11:16:26.196+05:30  INFO 20168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T11:16:27.115+05:30  INFO 20168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T11:16:27.127+05:30  INFO 20168 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T11:16:27.127+05:30  INFO 20168 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T11:16:27.204+05:30  INFO 20168 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T11:16:27.204+05:30  INFO 20168 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1007 ms
+2023-07-31T11:16:27.546+05:30  INFO 20168 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T11:16:27.583+05:30  INFO 20168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T11:16:27.595+05:30  INFO 20168 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 1.925 seconds (process running for 2.991)
+2023-07-31T12:18:00.954+05:30  INFO 3044 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 3044 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T12:18:00.964+05:30  INFO 3044 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T12:18:01.178+05:30  INFO 3044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T12:18:01.179+05:30  INFO 3044 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T12:18:03.428+05:30  INFO 3044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T12:18:03.464+05:30  INFO 3044 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T12:18:03.465+05:30  INFO 3044 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T12:18:03.628+05:30  INFO 3044 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T12:18:03.630+05:30  INFO 3044 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2448 ms
+2023-07-31T12:18:04.520+05:30  INFO 3044 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T12:18:04.606+05:30  INFO 3044 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T12:18:04.628+05:30  INFO 3044 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 4.755 seconds (process running for 8.657)
+2023-07-31T12:49:51.895+05:30  INFO 8680 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 8680 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T12:49:51.902+05:30  INFO 8680 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T12:49:52.036+05:30  INFO 8680 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T12:49:52.037+05:30  INFO 8680 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T12:49:54.336+05:30  INFO 8680 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T12:49:54.357+05:30  INFO 8680 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T12:49:54.358+05:30  INFO 8680 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T12:49:54.497+05:30  INFO 8680 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T12:49:54.498+05:30  INFO 8680 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2459 ms
+2023-07-31T12:49:55.186+05:30  INFO 8680 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T12:49:55.256+05:30  INFO 8680 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T12:49:55.276+05:30  INFO 8680 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 4.433 seconds (process running for 6.891)
+
+
+
+2023-07-31T12:53:11.030+05:30  INFO 8680 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T12:53:11.106+05:30  INFO 8680 --- [RMI TCP Connection(11)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:00:12.127+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 19376 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:00:12.128+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:00:12.310+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:00:12.310+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:00:12.311+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:00:12.331+05:30  INFO 19376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:00:12.332+05:30  INFO 19376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 200 ms
+2023-07-31T13:00:12.383+05:30  WARN 19376 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 192d23ff-4612-4e1e-a8d1-2d4bff7a9d3b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-07-31T13:00:12.386+05:30  INFO 19376 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@753c9b46, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d6a93b7, org.springframework.security.web.context.SecurityContextHolderFilter@26a2631b, org.springframework.security.web.header.HeaderWriterFilter@836c062, org.springframework.security.web.csrf.CsrfFilter@1fe80104, org.springframework.security.web.authentication.logout.LogoutFilter@31d691b7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@37f8cbc6, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@10674aba, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2c3dc527, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3226bfa7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@799db6ea, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2eecbad5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b618c80, org.springframework.security.web.access.ExceptionTranslationFilter@8cbeda9, org.springframework.security.web.access.intercept.AuthorizationFilter@503f082e]
+2023-07-31T13:00:12.394+05:30  INFO 19376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:00:12.405+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:00:12.409+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 0.328 seconds (process running for 215.074)
+2023-07-31T13:00:12.414+05:30  INFO 19376 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-31T13:00:29.116+05:30  INFO 19376 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-07-31T13:00:29.133+05:30  INFO 19376 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:00:29.215+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 19376 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:00:29.216+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:00:29.453+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:00:29.454+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:00:29.454+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:00:29.472+05:30  INFO 19376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:00:29.472+05:30  INFO 19376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 253 ms
+2023-07-31T13:00:29.497+05:30  WARN 19376 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:00:29.638+05:30  INFO 19376 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c64373e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@66e8d368, org.springframework.security.web.context.SecurityContextHolderFilter@317ccf5c, org.springframework.security.web.header.HeaderWriterFilter@1c23c5db, org.springframework.security.web.csrf.CsrfFilter@2a87dd42, org.springframework.security.web.authentication.logout.LogoutFilter@3ef909d5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4aa5381e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@258569fc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ba72031, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e266499, org.springframework.security.web.access.ExceptionTranslationFilter@7ce6514c, org.springframework.security.web.access.intercept.AuthorizationFilter@62c955f1]
+2023-07-31T13:00:29.663+05:30  INFO 19376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:00:29.673+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:00:29.678+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 0.491 seconds (process running for 232.342)
+2023-07-31T13:00:29.685+05:30  INFO 19376 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' securityFilterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder,org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector,org.springframework.security.oauth2.client.registration.ClientRegistrationRepository,org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository; SearchStrategy: all) found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' userDetailsService (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2023-07-31T13:00:54.445+05:30  INFO 19376 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-07-31T13:00:54.455+05:30  INFO 19376 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:00:54.515+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 19376 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:00:54.516+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:00:54.679+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:00:54.680+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:00:54.680+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:00:54.695+05:30  INFO 19376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:00:54.695+05:30  INFO 19376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 176 ms
+2023-07-31T13:00:54.717+05:30  WARN 19376 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:00:54.831+05:30  INFO 19376 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@8d72be, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b678364, org.springframework.security.web.context.SecurityContextHolderFilter@172a2292, org.springframework.security.web.header.HeaderWriterFilter@3dbcda74, org.springframework.security.web.csrf.CsrfFilter@7c1a0a2a, org.springframework.security.web.authentication.logout.LogoutFilter@6a952927, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4392a7fa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3bcd3107, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7759ab7f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@787c48c9, org.springframework.security.web.access.ExceptionTranslationFilter@5b72f554, org.springframework.security.web.access.intercept.AuthorizationFilter@23a2e57]
+2023-07-31T13:00:54.848+05:30  INFO 19376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:00:54.857+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:00:54.861+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 0.366 seconds (process running for 257.526)
+2023-07-31T13:00:54.863+05:30  INFO 19376 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-31T13:01:06.477+05:30  INFO 19376 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-07-31T13:01:06.495+05:30  INFO 19376 --- [Thread-15] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:01:06.561+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 19376 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:01:06.562+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:01:06.794+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:01:06.795+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:01:06.795+05:30  INFO 19376 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:01:06.819+05:30  INFO 19376 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:01:06.819+05:30  INFO 19376 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 255 ms
+2023-07-31T13:01:06.845+05:30  WARN 19376 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:01:06.974+05:30  INFO 19376 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2eeab41c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6d0f3906, org.springframework.security.web.context.SecurityContextHolderFilter@20310fb3, org.springframework.security.web.header.HeaderWriterFilter@687edcee, org.springframework.security.web.csrf.CsrfFilter@33f06850, org.springframework.security.web.authentication.logout.LogoutFilter@42206c99, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6fef59dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10b3510d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74c3913f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5763563e, org.springframework.security.web.access.ExceptionTranslationFilter@7e2346f2, org.springframework.security.web.access.intercept.AuthorizationFilter@20b35cad]
+2023-07-31T13:01:06.989+05:30  INFO 19376 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:01:06.996+05:30  INFO 19376 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:01:07.001+05:30  INFO 19376 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 0.465 seconds (process running for 269.665)
+2023-07-31T13:01:07.003+05:30  INFO 19376 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-07-31T13:03:44.110+05:30  INFO 19464 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 19464 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:03:44.113+05:30  INFO 19464 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:03:44.184+05:30  INFO 19464 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T13:03:44.184+05:30  INFO 19464 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T13:03:45.232+05:30  INFO 19464 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:03:45.246+05:30  INFO 19464 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:03:45.246+05:30  INFO 19464 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:03:45.365+05:30  INFO 19464 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:03:45.365+05:30  INFO 19464 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1180 ms
+2023-07-31T13:03:45.503+05:30  WARN 19464 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:03:45.814+05:30  INFO 19464 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@246a68ec, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79e660c8, org.springframework.security.web.context.SecurityContextHolderFilter@3f4722a3, org.springframework.security.web.header.HeaderWriterFilter@6d7545dc, org.springframework.security.web.csrf.CsrfFilter@3f110681, org.springframework.security.web.authentication.logout.LogoutFilter@232c146d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7739d8b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29dce659, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71e59cef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d2637ce, org.springframework.security.web.access.ExceptionTranslationFilter@7688c450, org.springframework.security.web.access.intercept.AuthorizationFilter@35de6a9d]
+2023-07-31T13:03:45.988+05:30  WARN 19464 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2023-07-31T13:03:46.011+05:30  WARN 19464 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2023-07-31T13:03:46.016+05:30  INFO 19464 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:03:46.034+05:30  INFO 19464 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-07-31T13:03:46.068+05:30 ERROR 19464 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-07-31T13:03:49.440+05:30  INFO 19376 --- [RMI TCP Connection(20)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T13:03:49.451+05:30  INFO 19376 --- [RMI TCP Connection(20)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:03:57.538+05:30  INFO 4264 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 4264 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:03:57.540+05:30  INFO 4264 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:03:57.608+05:30  INFO 4264 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T13:03:57.609+05:30  INFO 4264 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T13:03:58.671+05:30  INFO 4264 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:03:58.690+05:30  INFO 4264 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:03:58.691+05:30  INFO 4264 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:03:58.789+05:30  INFO 4264 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:03:58.789+05:30  INFO 4264 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1179 ms
+2023-07-31T13:03:58.930+05:30  WARN 4264 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:03:59.243+05:30  INFO 4264 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@48bb0787, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18e7a94f, org.springframework.security.web.context.SecurityContextHolderFilter@220065e5, org.springframework.security.web.header.HeaderWriterFilter@3b96f25c, org.springframework.security.web.csrf.CsrfFilter@d0cab67, org.springframework.security.web.authentication.logout.LogoutFilter@61471949, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1a7eacd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52a47820, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7327f2f4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26a8d91c, org.springframework.security.web.access.ExceptionTranslationFilter@2aa3cdb2, org.springframework.security.web.access.intercept.AuthorizationFilter@48531be4]
+2023-07-31T13:03:59.398+05:30  INFO 4264 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:03:59.437+05:30  INFO 4264 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:03:59.449+05:30  INFO 4264 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 2.399 seconds (process running for 3.461)
+2023-07-31T13:04:08.459+05:30  INFO 4264 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-31T13:04:08.460+05:30  INFO 4264 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-31T13:04:08.463+05:30  INFO 4264 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-07-31T13:10:48.908+05:30  INFO 4264 --- [RMI TCP Connection(16)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T13:10:48.925+05:30  INFO 4264 --- [RMI TCP Connection(16)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:10:48.928+05:30  INFO 4264 --- [RMI TCP Connection(16)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-07-31T13:10:58.791+05:30  INFO 20268 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 20268 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:10:58.794+05:30  INFO 20268 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:10:58.894+05:30  INFO 20268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T13:10:58.894+05:30  INFO 20268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T13:11:00.241+05:30  INFO 20268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:11:00.255+05:30  INFO 20268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:11:00.256+05:30  INFO 20268 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:11:00.343+05:30  INFO 20268 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:11:00.344+05:30  INFO 20268 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1450 ms
+2023-07-31T13:11:00.511+05:30  WARN 20268 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:11:00.876+05:30  INFO 20268 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@208385e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7575900a, org.springframework.security.web.context.SecurityContextHolderFilter@16f0b20f, org.springframework.security.web.header.HeaderWriterFilter@7407a156, org.springframework.security.web.csrf.CsrfFilter@641cfcc, org.springframework.security.web.authentication.logout.LogoutFilter@4a39352d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@a1421fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4aa1ec3f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32cdf3c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a5e32d7, org.springframework.security.web.access.ExceptionTranslationFilter@3d37a5f3, org.springframework.security.web.access.intercept.AuthorizationFilter@3bc6e8bb]
+2023-07-31T13:11:01.052+05:30  INFO 20268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:11:01.093+05:30  INFO 20268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:11:01.105+05:30  INFO 20268 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 2.798 seconds (process running for 3.937)
+2023-07-31T13:11:10.326+05:30  INFO 20268 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-31T13:11:10.327+05:30  INFO 20268 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-31T13:11:10.329+05:30  INFO 20268 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-07-31T13:22:20.682+05:30  INFO 20268 --- [RMI TCP Connection(22)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T13:22:20.705+05:30  INFO 20268 --- [RMI TCP Connection(22)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T13:22:20.708+05:30  INFO 20268 --- [RMI TCP Connection(22)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-07-31T13:22:30.718+05:30  INFO 14896 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Starting SpringBootForElkApplication using Java 17.0.7 with PID 14896 (C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication\target\classes started by amritak in C:\Users\amritak\Documents\workspace2_eurekaclient\SpringBootForElkApplication)
+2023-07-31T13:22:30.721+05:30  INFO 14896 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-07-31T13:22:30.795+05:30  INFO 14896 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-31T13:22:30.796+05:30  INFO 14896 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-31T13:22:31.957+05:30  INFO 14896 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-31T13:22:31.978+05:30  INFO 14896 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-31T13:22:31.979+05:30  INFO 14896 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.11]
+2023-07-31T13:22:32.108+05:30  INFO 14896 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-31T13:22:32.108+05:30  INFO 14896 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1311 ms
+2023-07-31T13:22:32.263+05:30  WARN 14896 --- [restartedMain] o.s.security.core.userdetails.User       : User.withDefaultPasswordEncoder() is considered unsafe for production and is only intended for sample applications.
+2023-07-31T13:22:32.628+05:30  INFO 14896 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6545c5c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ca4ae0d, org.springframework.security.web.context.SecurityContextHolderFilter@5113aefd, org.springframework.security.web.header.HeaderWriterFilter@1243e821, org.springframework.security.web.csrf.CsrfFilter@54b5ec4c, org.springframework.security.web.authentication.logout.LogoutFilter@22acbea6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7f238013, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20bf2d99, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@731ececd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54c7aa57, org.springframework.security.web.access.ExceptionTranslationFilter@3a4b10a0, org.springframework.security.web.access.intercept.AuthorizationFilter@58a6024c]
+2023-07-31T13:22:32.814+05:30  INFO 14896 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-31T13:22:32.857+05:30  INFO 14896 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-31T13:22:32.872+05:30  INFO 14896 --- [restartedMain] c.e.demo.SpringBootForElkApplication     : Started SpringBootForElkApplication in 2.62 seconds (process running for 3.743)
+2023-07-31T13:22:38.327+05:30  INFO 14896 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-31T13:22:38.328+05:30  INFO 14896 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-31T13:22:38.330+05:30  INFO 14896 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-07-31T13:23:54.891+05:30  INFO 14896 --- [http-nio-8080-exec-9] com.example.demo.ELKRestController       : Hello World!
+2023-07-31T14:36:21.704+05:30  INFO 14896 --- [RMI TCP Connection(30)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-07-31T14:36:21.722+05:30  INFO 14896 --- [RMI TCP Connection(30)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-31T14:36:21.724+05:30  INFO 14896 --- [RMI TCP Connection(30)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
